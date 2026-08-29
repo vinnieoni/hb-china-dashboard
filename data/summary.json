@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-29T19:30:08",
+  "generatedAt": "2026-08-29T21:17:28",
   "sourceRowCount": 5016,
   "usedRowCount": 4137,
   "daily": [
@@ -12623,6 +12623,1058 @@
       "followerTier": "미상",
       "stage": "협찬거절",
       "count": 1
+    }
+  ],
+  "megaRoiSourceRowCount": 124,
+  "megaRoiUsedRowCount": 124,
+  "megaRoi": [
+    {
+      "staff": "미상",
+      "platform": "더우인",
+      "nationality": "미상",
+      "followerTier": "10만 이상",
+      "count": 10,
+      "estimateSum": 373.0,
+      "estimateCount": 10,
+      "cpvSum": 0.084172,
+      "cpvCount": 10,
+      "roiSum": 12.828319,
+      "roiCount": 8
+    },
+    {
+      "staff": "미상",
+      "platform": "더우인",
+      "nationality": "미상",
+      "followerTier": "1만 미만",
+      "count": 2,
+      "estimateSum": 67.0,
+      "estimateCount": 2,
+      "cpvSum": 0.003544,
+      "cpvCount": 2,
+      "roiSum": 0.642287,
+      "roiCount": 2
+    },
+    {
+      "staff": "미상",
+      "platform": "더우인",
+      "nationality": "미상",
+      "followerTier": "1만~5만",
+      "count": 1,
+      "estimateSum": 23.0,
+      "estimateCount": 1,
+      "cpvSum": 0.037157,
+      "cpvCount": 1,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "미상",
+      "platform": "미상",
+      "nationality": "미상",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 0.0,
+      "estimateCount": 0,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "미상",
+      "platform": "스레드",
+      "nationality": "미상",
+      "followerTier": "5만~10만",
+      "count": 1,
+      "estimateSum": 60.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "비니",
+      "platform": "더우인",
+      "nationality": "미상",
+      "followerTier": "10만 이상",
+      "count": 3,
+      "estimateSum": 977.0,
+      "estimateCount": 3,
+      "cpvSum": 0.042857,
+      "cpvCount": 1,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "비니",
+      "platform": "더우인",
+      "nationality": "미상",
+      "followerTier": "1만 미만",
+      "count": 5,
+      "estimateSum": 63.0,
+      "estimateCount": 5,
+      "cpvSum": 0.309765,
+      "cpvCount": 3,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "비니",
+      "platform": "더우인",
+      "nationality": "미상",
+      "followerTier": "1만~5만",
+      "count": 3,
+      "estimateSum": 241.0,
+      "estimateCount": 3,
+      "cpvSum": 0.441379,
+      "cpvCount": 3,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "비니",
+      "platform": "더우인",
+      "nationality": "미상",
+      "followerTier": "5만~10만",
+      "count": 1,
+      "estimateSum": 75.0,
+      "estimateCount": 1,
+      "cpvSum": 0.080645,
+      "cpvCount": 1,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "비니",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "10만 이상",
+      "count": 6,
+      "estimateSum": 3077.0,
+      "estimateCount": 6,
+      "cpvSum": 1.323685,
+      "cpvCount": 6,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "비니",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "1만 미만",
+      "count": 3,
+      "estimateSum": 48.0,
+      "estimateCount": 3,
+      "cpvSum": 0.092979,
+      "cpvCount": 2,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "비니",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "1만~5만",
+      "count": 5,
+      "estimateSum": 390.0,
+      "estimateCount": 5,
+      "cpvSum": 4.607089,
+      "cpvCount": 5,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "비니",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "5만~10만",
+      "count": 3,
+      "estimateSum": 279.0,
+      "estimateCount": 3,
+      "cpvSum": 0.296045,
+      "cpvCount": 3,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "시나",
+      "platform": "더우인",
+      "nationality": "중국",
+      "followerTier": "1만~5만",
+      "count": 1,
+      "estimateSum": 50.0,
+      "estimateCount": 1,
+      "cpvSum": 0.010154,
+      "cpvCount": 1,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "시나",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "1만~5만",
+      "count": 1,
+      "estimateSum": 50.0,
+      "estimateCount": 1,
+      "cpvSum": 0.1,
+      "cpvCount": 1,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "시나",
+      "platform": "인스타그램",
+      "nationality": "대만",
+      "followerTier": "10만 이상",
+      "count": 3,
+      "estimateSum": 737.0,
+      "estimateCount": 3,
+      "cpvSum": 0.054118,
+      "cpvCount": 3,
+      "roiSum": 0.156917,
+      "roiCount": 1
+    },
+    {
+      "staff": "시나",
+      "platform": "인스타그램",
+      "nationality": "대만",
+      "followerTier": "1만~5만",
+      "count": 1,
+      "estimateSum": 140.0,
+      "estimateCount": 1,
+      "cpvSum": 0.074707,
+      "cpvCount": 1,
+      "roiSum": 0.997332,
+      "roiCount": 1
+    },
+    {
+      "staff": "시나",
+      "platform": "인스타그램",
+      "nationality": "대만",
+      "followerTier": "5만~10만",
+      "count": 4,
+      "estimateSum": 796.0,
+      "estimateCount": 4,
+      "cpvSum": 0.055089,
+      "cpvCount": 4,
+      "roiSum": 1.81544,
+      "roiCount": 2
+    },
+    {
+      "staff": "시나",
+      "platform": "인스타그램",
+      "nationality": "중국",
+      "followerTier": "10만 이상",
+      "count": 1,
+      "estimateSum": 300.0,
+      "estimateCount": 1,
+      "cpvSum": 0.007817,
+      "cpvCount": 1,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "율리",
+      "platform": "더우인",
+      "nationality": "미상",
+      "followerTier": "10만 이상",
+      "count": 8,
+      "estimateSum": 416.0,
+      "estimateCount": 8,
+      "cpvSum": 0.034755,
+      "cpvCount": 7,
+      "roiSum": 4.926896,
+      "roiCount": 5
+    },
+    {
+      "staff": "율리",
+      "platform": "더우인",
+      "nationality": "미상",
+      "followerTier": "1만 미만",
+      "count": 1,
+      "estimateSum": 34.0,
+      "estimateCount": 1,
+      "cpvSum": 0.139344,
+      "cpvCount": 1,
+      "roiSum": 0.963115,
+      "roiCount": 1
+    },
+    {
+      "staff": "율리",
+      "platform": "더우인",
+      "nationality": "미상",
+      "followerTier": "1만~5만",
+      "count": 2,
+      "estimateSum": 150.0,
+      "estimateCount": 2,
+      "cpvSum": 0.08365,
+      "cpvCount": 2,
+      "roiSum": 1.747102,
+      "roiCount": 2
+    },
+    {
+      "staff": "율리",
+      "platform": "더우인",
+      "nationality": "미상",
+      "followerTier": "5만~10만",
+      "count": 2,
+      "estimateSum": 128.0,
+      "estimateCount": 2,
+      "cpvSum": 0.020633,
+      "cpvCount": 1,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "율리",
+      "platform": "더우인",
+      "nationality": "중국",
+      "followerTier": "10만 이상",
+      "count": 2,
+      "estimateSum": 110.0,
+      "estimateCount": 2,
+      "cpvSum": 0.009816,
+      "cpvCount": 1,
+      "roiSum": 1.380368,
+      "roiCount": 1
+    },
+    {
+      "staff": "율리",
+      "platform": "더우인",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 50.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "율리",
+      "platform": "샤오홍슈",
+      "nationality": "미상",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 70.0,
+      "estimateCount": 1,
+      "cpvSum": 0.013208,
+      "cpvCount": 1,
+      "roiSum": 0.664906,
+      "roiCount": 1
+    },
+    {
+      "staff": "율리",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "10만 이상",
+      "count": 23,
+      "estimateSum": 6332.0,
+      "estimateCount": 23,
+      "cpvSum": 2.096093,
+      "cpvCount": 22,
+      "roiSum": 45.737736,
+      "roiCount": 19
+    },
+    {
+      "staff": "율리",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "1만 미만",
+      "count": 6,
+      "estimateSum": 200.0,
+      "estimateCount": 6,
+      "cpvSum": 1.947485,
+      "cpvCount": 6,
+      "roiSum": 0.859816,
+      "roiCount": 2
+    },
+    {
+      "staff": "율리",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "1만~5만",
+      "count": 12,
+      "estimateSum": 888.0,
+      "estimateCount": 12,
+      "cpvSum": 2.964002,
+      "cpvCount": 12,
+      "roiSum": 2.499011,
+      "roiCount": 5
+    },
+    {
+      "staff": "율리",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "5만~10만",
+      "count": 9,
+      "estimateSum": 748.0,
+      "estimateCount": 9,
+      "cpvSum": 0.88765,
+      "cpvCount": 9,
+      "roiSum": 1.50988,
+      "roiCount": 2
+    },
+    {
+      "staff": "율리",
+      "platform": "샤오홍슈",
+      "nationality": "한국",
+      "followerTier": "10만 이상",
+      "count": 1,
+      "estimateSum": 200.0,
+      "estimateCount": 1,
+      "cpvSum": 0.345423,
+      "cpvCount": 1,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "율리",
+      "platform": "인스타그램",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 50.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    }
+  ],
+  "contentSourceRowCount": 350,
+  "contentUsedRowCount": 348,
+  "contentUploads": [
+    {
+      "month": "2025-09",
+      "country": "국내",
+      "platform": "샤오홍슈",
+      "status": "완료",
+      "count": 1
+    },
+    {
+      "month": "2025-09",
+      "country": "대만",
+      "platform": "샤오홍슈",
+      "status": "완료",
+      "count": 1
+    },
+    {
+      "month": "2025-09",
+      "country": "영미",
+      "platform": "샤오홍슈",
+      "status": "완료",
+      "count": 1
+    },
+    {
+      "month": "2025-09",
+      "country": "일본",
+      "platform": "샤오홍슈",
+      "status": "완료",
+      "count": 1
+    },
+    {
+      "month": "2025-09",
+      "country": "중국",
+      "platform": "샤오홍슈",
+      "status": "완료",
+      "count": 1
+    },
+    {
+      "month": "2025-10",
+      "country": "국내",
+      "platform": "샤오홍슈",
+      "status": "완료",
+      "count": 19
+    },
+    {
+      "month": "2025-10",
+      "country": "국내",
+      "platform": "샤오홍슈",
+      "status": "페이마케팅",
+      "count": 5
+    },
+    {
+      "month": "2025-10",
+      "country": "대만",
+      "platform": "샤오홍슈",
+      "status": "완료",
+      "count": 19
+    },
+    {
+      "month": "2025-10",
+      "country": "대만",
+      "platform": "샤오홍슈",
+      "status": "페이마케팅",
+      "count": 5
+    },
+    {
+      "month": "2025-10",
+      "country": "영미",
+      "platform": "샤오홍슈",
+      "status": "완료",
+      "count": 19
+    },
+    {
+      "month": "2025-10",
+      "country": "영미",
+      "platform": "샤오홍슈",
+      "status": "페이마케팅",
+      "count": 5
+    },
+    {
+      "month": "2025-10",
+      "country": "일본",
+      "platform": "샤오홍슈",
+      "status": "완료",
+      "count": 19
+    },
+    {
+      "month": "2025-10",
+      "country": "일본",
+      "platform": "샤오홍슈",
+      "status": "페이마케팅",
+      "count": 5
+    },
+    {
+      "month": "2025-10",
+      "country": "중국",
+      "platform": "샤오홍슈",
+      "status": "완료",
+      "count": 19
+    },
+    {
+      "month": "2025-10",
+      "country": "중국",
+      "platform": "샤오홍슈",
+      "status": "페이마케팅",
+      "count": 5
+    },
+    {
+      "month": "2025-11",
+      "country": "국내",
+      "platform": "샤오홍슈",
+      "status": "미상",
+      "count": 1
+    },
+    {
+      "month": "2025-11",
+      "country": "국내",
+      "platform": "샤오홍슈",
+      "status": "완료",
+      "count": 10
+    },
+    {
+      "month": "2025-11",
+      "country": "국내",
+      "platform": "샤오홍슈",
+      "status": "페이마케팅",
+      "count": 1
+    },
+    {
+      "month": "2025-11",
+      "country": "대만",
+      "platform": "샤오홍슈",
+      "status": "미상",
+      "count": 1
+    },
+    {
+      "month": "2025-11",
+      "country": "대만",
+      "platform": "샤오홍슈",
+      "status": "완료",
+      "count": 10
+    },
+    {
+      "month": "2025-11",
+      "country": "대만",
+      "platform": "샤오홍슈",
+      "status": "페이마케팅",
+      "count": 1
+    },
+    {
+      "month": "2025-11",
+      "country": "영미",
+      "platform": "샤오홍슈",
+      "status": "미상",
+      "count": 1
+    },
+    {
+      "month": "2025-11",
+      "country": "영미",
+      "platform": "샤오홍슈",
+      "status": "완료",
+      "count": 10
+    },
+    {
+      "month": "2025-11",
+      "country": "영미",
+      "platform": "샤오홍슈",
+      "status": "페이마케팅",
+      "count": 1
+    },
+    {
+      "month": "2025-11",
+      "country": "일본",
+      "platform": "샤오홍슈",
+      "status": "미상",
+      "count": 1
+    },
+    {
+      "month": "2025-11",
+      "country": "일본",
+      "platform": "샤오홍슈",
+      "status": "완료",
+      "count": 10
+    },
+    {
+      "month": "2025-11",
+      "country": "일본",
+      "platform": "샤오홍슈",
+      "status": "페이마케팅",
+      "count": 1
+    },
+    {
+      "month": "2025-11",
+      "country": "중국",
+      "platform": "샤오홍슈",
+      "status": "미상",
+      "count": 1
+    },
+    {
+      "month": "2025-11",
+      "country": "중국",
+      "platform": "샤오홍슈",
+      "status": "완료",
+      "count": 10
+    },
+    {
+      "month": "2025-11",
+      "country": "중국",
+      "platform": "샤오홍슈",
+      "status": "페이마케팅",
+      "count": 1
+    },
+    {
+      "month": "2025-12",
+      "country": "국내",
+      "platform": "웨이보",
+      "status": "완료",
+      "count": 4
+    },
+    {
+      "month": "2025-12",
+      "country": "대만",
+      "platform": "웨이보",
+      "status": "완료",
+      "count": 4
+    },
+    {
+      "month": "2025-12",
+      "country": "영미",
+      "platform": "웨이보",
+      "status": "완료",
+      "count": 4
+    },
+    {
+      "month": "2025-12",
+      "country": "일본",
+      "platform": "웨이보",
+      "status": "완료",
+      "count": 4
+    },
+    {
+      "month": "2025-12",
+      "country": "중국",
+      "platform": "웨이보",
+      "status": "완료",
+      "count": 4
+    },
+    {
+      "month": "2026-05",
+      "country": "중국",
+      "platform": "샤오홍슈",
+      "status": "업로드 완료",
+      "count": 1
+    },
+    {
+      "month": "2026-06",
+      "country": "국내",
+      "platform": "인스타",
+      "status": "업로드 완료",
+      "count": 29
+    },
+    {
+      "month": "2026-06",
+      "country": "대만",
+      "platform": "인스타",
+      "status": "업로드 완료",
+      "count": 12
+    },
+    {
+      "month": "2026-06",
+      "country": "영미",
+      "platform": "인스타",
+      "status": "업로드 완료",
+      "count": 14
+    },
+    {
+      "month": "2026-06",
+      "country": "영미",
+      "platform": "틱톡",
+      "status": "업로드 완료",
+      "count": 4
+    },
+    {
+      "month": "2026-06",
+      "country": "일본",
+      "platform": "인스타",
+      "status": "업로드 완료",
+      "count": 3
+    },
+    {
+      "month": "2026-06",
+      "country": "중국",
+      "platform": "도우인",
+      "status": "업로드 완료",
+      "count": 9
+    },
+    {
+      "month": "2026-06",
+      "country": "중국",
+      "platform": "빌리빌리",
+      "status": "업로드 완료",
+      "count": 5
+    },
+    {
+      "month": "2026-06",
+      "country": "중국",
+      "platform": "샤오홍슈",
+      "status": "업로드 완료",
+      "count": 7
+    },
+    {
+      "month": "2026-07",
+      "country": "국내",
+      "platform": "인스타",
+      "status": "업로드 완료",
+      "count": 22
+    },
+    {
+      "month": "2026-07",
+      "country": "대만",
+      "platform": "인스타",
+      "status": "광고 진행 중",
+      "count": 1
+    },
+    {
+      "month": "2026-07",
+      "country": "대만",
+      "platform": "인스타",
+      "status": "업로드 완료",
+      "count": 4
+    },
+    {
+      "month": "2026-07",
+      "country": "영미",
+      "platform": "인스타",
+      "status": "업로드 완료",
+      "count": 10
+    },
+    {
+      "month": "2026-07",
+      "country": "영미",
+      "platform": "틱톡",
+      "status": "업로드 완료",
+      "count": 11
+    },
+    {
+      "month": "2026-07",
+      "country": "일본",
+      "platform": "인스타",
+      "status": "업로드 완료",
+      "count": 1
+    },
+    {
+      "month": "2026-07",
+      "country": "중국",
+      "platform": "도우인",
+      "status": "업로드 완료",
+      "count": 7
+    },
+    {
+      "month": "2026-07",
+      "country": "중국",
+      "platform": "빌리빌리",
+      "status": "업로드 완료",
+      "count": 2
+    },
+    {
+      "month": "2026-07",
+      "country": "중국",
+      "platform": "샤오홍슈",
+      "status": "업로드 완료",
+      "count": 1
+    }
+  ],
+  "contentEngagement": [
+    {
+      "month": "2025-09",
+      "platform": "샤오홍슈",
+      "likesSum": 0.0,
+      "likesCount": 0,
+      "commentsSum": 0.0,
+      "commentsCount": 0,
+      "sharesSum": 0.0,
+      "sharesCount": 0,
+      "savesSum": 0.0,
+      "savesCount": 0,
+      "viewsSum": 0.0,
+      "viewsCount": 0,
+      "pairedLikesSum": 0.0,
+      "pairedViewsSum": 0.0,
+      "pairedCount": 0
+    },
+    {
+      "month": "2025-10",
+      "platform": "샤오홍슈",
+      "likesSum": 0.0,
+      "likesCount": 0,
+      "commentsSum": 0.0,
+      "commentsCount": 0,
+      "sharesSum": 0.0,
+      "sharesCount": 0,
+      "savesSum": 0.0,
+      "savesCount": 0,
+      "viewsSum": 0.0,
+      "viewsCount": 0,
+      "pairedLikesSum": 0.0,
+      "pairedViewsSum": 0.0,
+      "pairedCount": 0
+    },
+    {
+      "month": "2025-11",
+      "platform": "샤오홍슈",
+      "likesSum": 0.0,
+      "likesCount": 0,
+      "commentsSum": 0.0,
+      "commentsCount": 0,
+      "sharesSum": 0.0,
+      "sharesCount": 0,
+      "savesSum": 0.0,
+      "savesCount": 0,
+      "viewsSum": 0.0,
+      "viewsCount": 0,
+      "pairedLikesSum": 0.0,
+      "pairedViewsSum": 0.0,
+      "pairedCount": 0
+    },
+    {
+      "month": "2025-12",
+      "platform": "웨이보",
+      "likesSum": 0.0,
+      "likesCount": 0,
+      "commentsSum": 0.0,
+      "commentsCount": 0,
+      "sharesSum": 0.0,
+      "sharesCount": 0,
+      "savesSum": 0.0,
+      "savesCount": 0,
+      "viewsSum": 0.0,
+      "viewsCount": 0,
+      "pairedLikesSum": 0.0,
+      "pairedViewsSum": 0.0,
+      "pairedCount": 0
+    },
+    {
+      "month": "2026-05",
+      "platform": "샤오홍슈",
+      "likesSum": 125.0,
+      "likesCount": 1,
+      "commentsSum": 1.0,
+      "commentsCount": 1,
+      "sharesSum": 5.0,
+      "sharesCount": 1,
+      "savesSum": 42.0,
+      "savesCount": 1,
+      "viewsSum": 7915.0,
+      "viewsCount": 1,
+      "pairedLikesSum": 125.0,
+      "pairedViewsSum": 7915.0,
+      "pairedCount": 1
+    },
+    {
+      "month": "2026-06",
+      "platform": "도우인",
+      "likesSum": 78.0,
+      "likesCount": 9,
+      "commentsSum": 11.0,
+      "commentsCount": 9,
+      "sharesSum": 4.0,
+      "sharesCount": 9,
+      "savesSum": 32.0,
+      "savesCount": 9,
+      "viewsSum": 3560.0,
+      "viewsCount": 9,
+      "pairedLikesSum": 78.0,
+      "pairedViewsSum": 3560.0,
+      "pairedCount": 9
+    },
+    {
+      "month": "2026-06",
+      "platform": "빌리빌리",
+      "likesSum": 28.0,
+      "likesCount": 5,
+      "commentsSum": 0.0,
+      "commentsCount": 0,
+      "sharesSum": 0.0,
+      "sharesCount": 0,
+      "savesSum": 453.0,
+      "savesCount": 5,
+      "viewsSum": 0.0,
+      "viewsCount": 0,
+      "pairedLikesSum": 0.0,
+      "pairedViewsSum": 0.0,
+      "pairedCount": 0
+    },
+    {
+      "month": "2026-06",
+      "platform": "샤오홍슈",
+      "likesSum": 123.0,
+      "likesCount": 7,
+      "commentsSum": 4.0,
+      "commentsCount": 7,
+      "sharesSum": 13.0,
+      "sharesCount": 5,
+      "savesSum": 115.0,
+      "savesCount": 7,
+      "viewsSum": 1817.0,
+      "viewsCount": 5,
+      "pairedLikesSum": 59.0,
+      "pairedViewsSum": 1817.0,
+      "pairedCount": 5
+    },
+    {
+      "month": "2026-06",
+      "platform": "인스타",
+      "likesSum": 1930.0,
+      "likesCount": 58,
+      "commentsSum": 62.0,
+      "commentsCount": 55,
+      "sharesSum": 398.0,
+      "sharesCount": 55,
+      "savesSum": 511.0,
+      "savesCount": 55,
+      "viewsSum": 75338.393,
+      "viewsCount": 47,
+      "pairedLikesSum": 754.0,
+      "pairedViewsSum": 75338.393,
+      "pairedCount": 47
+    },
+    {
+      "month": "2026-06",
+      "platform": "틱톡",
+      "likesSum": 19.0,
+      "likesCount": 4,
+      "commentsSum": 1.0,
+      "commentsCount": 4,
+      "sharesSum": 15.0,
+      "sharesCount": 4,
+      "savesSum": 6.0,
+      "savesCount": 4,
+      "viewsSum": 2920.0,
+      "viewsCount": 4,
+      "pairedLikesSum": 19.0,
+      "pairedViewsSum": 2920.0,
+      "pairedCount": 4
+    },
+    {
+      "month": "2026-07",
+      "platform": "도우인",
+      "likesSum": 36.0,
+      "likesCount": 6,
+      "commentsSum": 6.0,
+      "commentsCount": 6,
+      "sharesSum": 1.0,
+      "sharesCount": 6,
+      "savesSum": 13.0,
+      "savesCount": 6,
+      "viewsSum": 1295.0,
+      "viewsCount": 6,
+      "pairedLikesSum": 36.0,
+      "pairedViewsSum": 1295.0,
+      "pairedCount": 6
+    },
+    {
+      "month": "2026-07",
+      "platform": "빌리빌리",
+      "likesSum": 11.0,
+      "likesCount": 1,
+      "commentsSum": 0.0,
+      "commentsCount": 0,
+      "sharesSum": 0.0,
+      "sharesCount": 0,
+      "savesSum": 154.0,
+      "savesCount": 1,
+      "viewsSum": 0.0,
+      "viewsCount": 0,
+      "pairedLikesSum": 0.0,
+      "pairedViewsSum": 0.0,
+      "pairedCount": 0
+    },
+    {
+      "month": "2026-07",
+      "platform": "샤오홍슈",
+      "likesSum": 0.0,
+      "likesCount": 0,
+      "commentsSum": 0.0,
+      "commentsCount": 0,
+      "sharesSum": 0.0,
+      "sharesCount": 0,
+      "savesSum": 0.0,
+      "savesCount": 0,
+      "viewsSum": 0.0,
+      "viewsCount": 0,
+      "pairedLikesSum": 0.0,
+      "pairedViewsSum": 0.0,
+      "pairedCount": 0
+    },
+    {
+      "month": "2026-07",
+      "platform": "인스타",
+      "likesSum": 915.0,
+      "likesCount": 28,
+      "commentsSum": 119.0,
+      "commentsCount": 27,
+      "sharesSum": 693.0,
+      "sharesCount": 27,
+      "savesSum": 341.0,
+      "savesCount": 27,
+      "viewsSum": 32372.0,
+      "viewsCount": 20,
+      "pairedLikesSum": 330.0,
+      "pairedViewsSum": 32372.0,
+      "pairedCount": 20
+    },
+    {
+      "month": "2026-07",
+      "platform": "틱톡",
+      "likesSum": 89.0,
+      "likesCount": 8,
+      "commentsSum": 0.0,
+      "commentsCount": 8,
+      "sharesSum": 61.0,
+      "sharesCount": 3,
+      "savesSum": 43.0,
+      "savesCount": 3,
+      "viewsSum": 6546.0,
+      "viewsCount": 8,
+      "pairedLikesSum": 89.0,
+      "pairedViewsSum": 6546.0,
+      "pairedCount": 8
     }
   ]
 }

@@ -410,6 +410,114 @@ async function main() {
     renderProcedures(data.procedureMonthly.filter((r) => r.month >= mFrom && r.month <= mTo));
     renderSlots(data.bookingSlots);
     renderInfluencer(influencerCountrySel.value);
+    renderContentPerformance();
+    renderMegaRoi();
+  }
+
+  const CONTENT_COMPLETED_STATUSES = new Set(["완료", "업로드 완료"]);
+
+  function renderContentPerformance() {
+    const uploads = data.contentUploads;
+    const engagement = data.contentEngagement;
+
+    const kpiRow = document.getElementById("contentKpiRow");
+    clear(kpiRow);
+    const total = sum(uploads, (r) => r.count);
+    const countries = new Set(uploads.map((r) => r.country));
+    const platforms = new Set(uploads.map((r) => r.platform));
+    const completedCount = sum(uploads.filter((r) => CONTENT_COMPLETED_STATUSES.has(r.status)), (r) => r.count);
+    statTile(kpiRow, "총 업로드 건수", fmtInt(total));
+    statTile(kpiRow, "국가 수", fmtInt(countries.size));
+    statTile(kpiRow, "플랫폼 수", fmtInt(platforms.size));
+    statTile(kpiRow, "완료율", fmtPct(total ? completedCount / total : 0));
+
+    const months = [...new Set(uploads.map((r) => r.month))].sort();
+    const totalByMonth = groupSum(uploads, (r) => r.month);
+    const completedByMonth = groupSum(uploads.filter((r) => CONTENT_COMPLETED_STATUSES.has(r.status)), (r) => r.month);
+    lineChart(document.getElementById("contentTrendChart"), {
+      xLabels: months,
+      series: [
+        { name: "총 업로드", color: "var(--series-1)", points: months.map((m) => totalByMonth.get(m) || 0) },
+        { name: "완료", color: "var(--series-2)", points: months.map((m) => completedByMonth.get(m) || 0) },
+      ],
+      width: 1080,
+      height: 220,
+    });
+
+    const byCountry = groupSum(uploads, (r) => r.country);
+    const countryItems = [...byCountry.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .map(([label, value]) => ({ label, value, color: "var(--series-1)", tooltipLabel: "업로드 건수" }));
+    hBarChart(document.getElementById("contentCountryChart"), { items: countryItems, width: 500 });
+
+    const byPlatform = groupSum(uploads, (r) => r.platform);
+    const platformItems = [...byPlatform.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .map(([label, value]) => ({ label, value, color: "var(--series-1)", tooltipLabel: "업로드 건수" }));
+    hBarChart(document.getElementById("contentPlatformChart"), { items: platformItems, width: 500 });
+
+    // 참고용 부분 표본: 좋아요·조회수가 둘 다 기록된 게시물만 대상으로 비율 산출
+    const pairedLikes = groupSum(engagement, (r) => r.platform, (r) => r.pairedLikesSum);
+    const pairedViews = groupSum(engagement, (r) => r.platform, (r) => r.pairedViewsSum);
+    const pairedCount = groupSum(engagement, (r) => r.platform, (r) => r.pairedCount);
+    const engItems = [...pairedCount.entries()]
+      .filter(([, c]) => c >= 3)
+      .map(([p, c]) => ({
+        label: p,
+        value: pairedViews.get(p) ? pairedLikes.get(p) / pairedViews.get(p) : 0,
+        color: "var(--series-1)",
+        tooltipLabel: `좋아요/조회수 (표본 ${c}건)`,
+      }))
+      .sort((a, b) => b.value - a.value);
+    const totalPaired = sum([...pairedCount.values()], (v) => v);
+    document.getElementById("contentEngagementSubtitle").textContent =
+      `좋아요·조회수가 모두 기록된 게시물만 대상 (전체 ${fmtInt(total)}건 중 ${fmtInt(totalPaired)}건 표본) — 전수 조사가 아닌 참고용 수치입니다.`;
+    hBarChart(document.getElementById("contentEngagementChart"), { items: engItems, valueFormat: fmtPct, width: 700 });
+  }
+
+  function renderMegaRoi() {
+    const rows = data.megaRoi;
+    const cpvFmt = (v) => v.toFixed(3);
+
+    const kpiRow = document.getElementById("megaRoiKpiRow");
+    clear(kpiRow);
+    const totalCount = sum(rows, (r) => r.count);
+    const roiSum = sum(rows, (r) => r.roiSum);
+    const roiCount = sum(rows, (r) => r.roiCount);
+    const cpvSum = sum(rows, (r) => r.cpvSum);
+    const cpvCount = sum(rows, (r) => r.cpvCount);
+    const estSum = sum(rows, (r) => r.estimateSum);
+    const estCount = sum(rows, (r) => r.estimateCount);
+    statTile(kpiRow, "총 진행 건수", fmtInt(totalCount));
+    statTile(kpiRow, "평균 ROI달성률", fmtPct(roiCount ? roiSum / roiCount : 0));
+    statTile(kpiRow, "평균 CPV(예측)", cpvCount ? cpvFmt(cpvSum / cpvCount) : "-");
+    statTile(kpiRow, "평균 견적 (만원)", fmtInt(Math.round(estCount ? estSum / estCount : 0)));
+
+    const staffRoiSum = groupSum(rows, (r) => r.staff, (r) => r.roiSum);
+    const staffRoiCount = groupSum(rows, (r) => r.staff, (r) => r.roiCount);
+    const staffTotalCount = groupSum(rows, (r) => r.staff, (r) => r.count);
+    const staffItems = [...staffTotalCount.entries()]
+      .filter(([s, c]) => c >= 3 && staffRoiCount.get(s))
+      .map(([s]) => ({
+        label: s, value: staffRoiSum.get(s) / staffRoiCount.get(s), color: "var(--series-1)", tooltipLabel: "평균 ROI달성률",
+      }))
+      .sort((a, b) => b.value - a.value);
+    hBarChart(document.getElementById("megaRoiStaffChart"), { items: staffItems, valueFormat: fmtPct, width: 500 });
+
+    const platformRoiSum = groupSum(rows, (r) => r.platform, (r) => r.roiSum);
+    const platformRoiCount = groupSum(rows, (r) => r.platform, (r) => r.roiCount);
+    const platformItems = [...platformRoiCount.entries()]
+      .filter(([, c]) => c > 0)
+      .map(([p, c]) => ({ label: p, value: platformRoiSum.get(p) / c, color: "var(--series-1)", tooltipLabel: "평균 ROI달성률" }))
+      .sort((a, b) => b.value - a.value);
+    hBarChart(document.getElementById("megaRoiPlatformChart"), { items: platformItems, valueFormat: fmtPct, width: 500 });
+
+    const tierCpvSum = groupSum(rows, (r) => r.followerTier, (r) => r.cpvSum);
+    const tierCpvCount = groupSum(rows, (r) => r.followerTier, (r) => r.cpvCount);
+    const tierItems = FOLLOWER_TIER_ORDER.filter((t) => tierCpvCount.get(t)).map((t) => ({
+      label: t, value: tierCpvSum.get(t) / tierCpvCount.get(t), color: "var(--series-1)", tooltipLabel: "평균 CPV(예측)",
+    }));
+    hBarChart(document.getElementById("megaRoiTierChart"), { items: tierItems, valueFormat: cpvFmt, width: 1080 });
   }
 
   function renderInfluencer(country) {

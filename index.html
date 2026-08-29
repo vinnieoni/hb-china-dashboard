@@ -29,6 +29,8 @@
       <button class="tab-btn active" data-tab="tab-booking">예약·전환</button>
       <button class="tab-btn" data-tab="tab-staff">채널·담당자</button>
       <button class="tab-btn" data-tab="tab-influencer">인플루언서 퍼널</button>
+      <button class="tab-btn" data-tab="tab-content">콘텐츠 성과</button>
+      <button class="tab-btn" data-tab="tab-megaroi">메가인플루언서 ROI</button>
     </div>
 
     <section id="tab-booking" class="tab-panel active">
@@ -100,6 +102,55 @@
         <h2>팔로워 구간별 업로드 전환율</h2>
         <p class="subtitle">선택 국가 기준</p>
         <div id="influencerTierChart"></div>
+      </div>
+    </section>
+
+    <section id="tab-content" class="tab-panel">
+      <div class="card full">
+        <p class="subtitle">콘텐츠 업로드 관리 시트(전체통합) 집계 — 게시물 링크 등 개인 식별 정보는 포함되지 않습니다.</p>
+      </div>
+      <div class="kpi-row" id="contentKpiRow" style="grid-column:1 / -1"></div>
+      <div class="card full" id="contentTrendCard">
+        <h2>월별 업로드 추이</h2>
+        <p class="subtitle">총 업로드 건수 vs 완료(완료+업로드 완료) 건수</p>
+        <div id="contentTrendChart"></div>
+      </div>
+      <div class="card" id="contentCountryCard">
+        <h2>국가별 업로드량</h2>
+        <p class="subtitle">전체 기간 합계</p>
+        <div id="contentCountryChart"></div>
+      </div>
+      <div class="card" id="contentPlatformCard">
+        <h2>플랫폼별 업로드량</h2>
+        <p class="subtitle">전체 기간 합계</p>
+        <div id="contentPlatformChart"></div>
+      </div>
+      <div class="card full" id="contentEngagementCard">
+        <h2>플랫폼별 좋아요/조회수 비율</h2>
+        <p class="subtitle" id="contentEngagementSubtitle">좋아요·조회수가 모두 기록된 게시물만 대상 — 참고용 부분 표본입니다.</p>
+        <div id="contentEngagementChart"></div>
+      </div>
+    </section>
+
+    <section id="tab-megaroi" class="tab-panel">
+      <div class="card full">
+        <p class="subtitle">마케팅팀 인플루언서 시트의 '메가인플루언서 협업ROI' 집계 — 아이디·계정 링크 등 개인 식별 정보는 포함되지 않습니다.</p>
+      </div>
+      <div class="kpi-row" id="megaRoiKpiRow" style="grid-column:1 / -1"></div>
+      <div class="card" id="megaRoiStaffCard">
+        <h2>담당자별 평균 ROI달성률</h2>
+        <p class="subtitle">ROI달성률이 집계된 건 기준 (3건 미만 담당자 제외)</p>
+        <div id="megaRoiStaffChart"></div>
+      </div>
+      <div class="card" id="megaRoiPlatformCard">
+        <h2>플랫폼별 평균 ROI달성률</h2>
+        <p class="subtitle">ROI달성률이 집계된 건 기준</p>
+        <div id="megaRoiPlatformChart"></div>
+      </div>
+      <div class="card full" id="megaRoiTierCard">
+        <h2>팔로워 구간별 평균 CPV(예측)</h2>
+        <p class="subtitle">CPV가 집계된 건 기준, 팔로워 수 오름차순</p>
+        <div id="megaRoiTierChart"></div>
       </div>
     </section>
 
