@@ -1,0 +1,565 @@
+const NS = "http://www.w3.org/2000/svg";
+const fmtInt = (n) => n.toLocaleString("ko-KR");
+const fmtPct = (n) => `${(n * 100).toFixed(1)}%`;
+
+function svgEl(tag, attrs = {}) {
+  const el = document.createElementNS(NS, tag);
+  for (const k in attrs) el.setAttribute(k, attrs[k]);
+  return el;
+}
+
+function clear(el) {
+  while (el.firstChild) el.removeChild(el.firstChild);
+}
+
+const tooltipEl = document.getElementById("tooltip");
+
+function showTooltip(clientX, clientY, title, rows) {
+  clear(tooltipEl);
+  const titleEl = document.createElement("div");
+  titleEl.className = "title";
+  titleEl.textContent = title;
+  tooltipEl.appendChild(titleEl);
+  rows.forEach(({ label, value, color }) => {
+    const row = document.createElement("div");
+    row.className = "row";
+    if (color) {
+      const key = document.createElement("span");
+      key.className = "key";
+      key.style.background = color;
+      row.appendChild(key);
+    }
+    const labelSpan = document.createElement("span");
+    labelSpan.textContent = label;
+    const valueEl = document.createElement("strong");
+    valueEl.textContent = value;
+    row.appendChild(labelSpan);
+    row.appendChild(valueEl);
+    tooltipEl.appendChild(row);
+  });
+  tooltipEl.style.display = "block";
+  const pad = 14;
+  let left = clientX + pad;
+  let top = clientY + pad;
+  const rect = tooltipEl.getBoundingClientRect();
+  if (left + rect.width > window.innerWidth) left = clientX - rect.width - pad;
+  if (top + rect.height > window.innerHeight) top = clientY - rect.height - pad;
+  tooltipEl.style.left = `${left}px`;
+  tooltipEl.style.top = `${top}px`;
+}
+
+function hideTooltip() {
+  tooltipEl.style.display = "none";
+}
+
+function buildLegend(container, items) {
+  const legend = document.createElement("div");
+  legend.className = "legend";
+  items.forEach(({ label, color, line }) => {
+    const item = document.createElement("div");
+    item.className = "legend-item";
+    const swatch = document.createElement("span");
+    swatch.className = "legend-swatch" + (line ? " line" : "");
+    swatch.style.background = color;
+    item.appendChild(swatch);
+    const text = document.createElement("span");
+    text.textContent = label;
+    item.appendChild(text);
+    legend.appendChild(item);
+  });
+  container.appendChild(legend);
+}
+
+function niceMax(value) {
+  if (value <= 0) return 10;
+  const magnitude = Math.pow(10, Math.floor(Math.log10(value)));
+  const steps = [1, 2, 2.5, 5, 10];
+  for (const s of steps) {
+    if (value <= s * magnitude) return s * magnitude;
+  }
+  return 10 * magnitude;
+}
+
+// ---- Line chart (shared single axis, crosshair + tooltip) ----
+function lineChart(container, { xLabels, series, width = 640, height = 220 }) {
+  clear(container);
+  const marginL = 44, marginR = 12, marginT = 12, marginB = 26;
+  const plotW = width - marginL - marginR;
+  const plotH = height - marginT - marginB;
+  const maxVal = niceMax(Math.max(1, ...series.flatMap((s) => s.points)));
+  const n = xLabels.length;
+  const xAt = (i) => marginL + (n <= 1 ? 0 : (plotW * i) / (n - 1));
+  const yAt = (v) => marginT + plotH - (plotH * v) / maxVal;
+
+  const svg = svgEl("svg", { viewBox: `0 0 ${width} ${height}`, width: "100%", height });
+  container.appendChild(svg);
+
+  const ticks = 4;
+  for (let t = 0; t <= ticks; t++) {
+    const v = (maxVal / ticks) * t;
+    const y = yAt(v);
+    svg.appendChild(svgEl("line", { x1: marginL, x2: width - marginR, y1: y, y2: y, class: "gridline" }));
+    const label = svgEl("text", { x: marginL - 8, y: y + 3, "text-anchor": "end", class: "axis-label" });
+    label.textContent = fmtInt(Math.round(v));
+    svg.appendChild(label);
+  }
+  svg.appendChild(svgEl("line", { x1: marginL, x2: width - marginR, y1: marginT + plotH, y2: marginT + plotH, class: "baseline" }));
+
+  const step = Math.max(1, Math.ceil(n / 8));
+  xLabels.forEach((lab, i) => {
+    if (i % step !== 0 && i !== n - 1) return;
+    const label = svgEl("text", { x: xAt(i), y: height - 6, "text-anchor": "middle", class: "axis-label" });
+    label.textContent = lab;
+    svg.appendChild(label);
+  });
+
+  series.forEach((s) => {
+    const d = s.points.map((v, i) => `${i === 0 ? "M" : "L"}${xAt(i)},${yAt(v)}`).join(" ");
+    const path = svgEl("path", { d, fill: "none", stroke: s.color, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" });
+    svg.appendChild(path);
+  });
+
+  const crosshair = svgEl("line", { y1: marginT, y2: marginT + plotH, class: "gridline", style: "display:none" });
+  svg.appendChild(crosshair);
+  const dots = series.map((s) => {
+    const dot = svgEl("circle", { r: 4, fill: s.color, stroke: "var(--surface)", "stroke-width": 2, style: "display:none" });
+    svg.appendChild(dot);
+    return dot;
+  });
+
+  const hit = svgEl("rect", { x: marginL, y: marginT, width: plotW, height: plotH, fill: "transparent" });
+  svg.appendChild(hit);
+
+  function onMove(evt) {
+    const rect = svg.getBoundingClientRect();
+    const scale = width / rect.width;
+    const localX = (evt.clientX - rect.left) * scale;
+    let idx = Math.round(((localX - marginL) / plotW) * (n - 1));
+    idx = Math.max(0, Math.min(n - 1, idx));
+    const x = xAt(idx);
+    crosshair.setAttribute("x1", x);
+    crosshair.setAttribute("x2", x);
+    crosshair.style.display = "block";
+    series.forEach((s, i) => {
+      dots[i].setAttribute("cx", x);
+      dots[i].setAttribute("cy", yAt(s.points[idx]));
+      dots[i].style.display = "block";
+    });
+    showTooltip(
+      evt.clientX,
+      evt.clientY,
+      xLabels[idx],
+      series.map((s) => ({ label: s.name, value: fmtInt(s.points[idx]), color: s.color }))
+    );
+  }
+  hit.addEventListener("pointermove", onMove);
+  hit.addEventListener("pointerleave", () => {
+    crosshair.style.display = "none";
+    dots.forEach((d) => (d.style.display = "none"));
+    hideTooltip();
+  });
+
+  buildLegend(container, series.map((s) => ({ label: s.name, color: s.color, line: true })));
+}
+
+// ---- Horizontal bar chart ----
+function hBarChart(container, { items, width = 560, barHeight = 22, gap = 10, valueFormat = fmtInt }) {
+  clear(container);
+  const marginL = 96, marginR = 46, marginT = 6;
+  const plotW = width - marginL - marginR;
+  const maxVal = niceMax(Math.max(1, ...items.map((it) => it.value)));
+  const height = marginT + items.length * (barHeight + gap);
+
+  const svg = svgEl("svg", { viewBox: `0 0 ${width} ${height}`, width: "100%", height });
+  container.appendChild(svg);
+
+  items.forEach((it, i) => {
+    const y = marginT + i * (barHeight + gap);
+    const w = Math.max(2, (plotW * it.value) / maxVal);
+    const label = svgEl("text", { x: marginL - 10, y: y + barHeight / 2 + 4, "text-anchor": "end", class: "axis-label" });
+    label.textContent = it.label;
+    svg.appendChild(label);
+
+    const barGroup = svgEl("g");
+    const rect = svgEl("rect", {
+      x: marginL, y, width: w, height: barHeight, rx: 4, ry: 4,
+      style: `fill:${it.color}`,
+    });
+    barGroup.appendChild(rect);
+
+    const showInside = w > 46;
+    const valText = svgEl("text", {
+      x: showInside ? marginL + w - 8 : marginL + w + 8,
+      y: y + barHeight / 2 + 4,
+      "text-anchor": showInside ? "end" : "start",
+      class: "value-label",
+    });
+    if (showInside) valText.setAttribute("style", "fill:#fff");
+    valText.textContent = valueFormat(it.value);
+    barGroup.appendChild(valText);
+
+    const hit = svgEl("rect", { x: marginL, y, width: plotW, height: barHeight, fill: "transparent" });
+    hit.addEventListener("pointermove", (evt) => {
+      showTooltip(evt.clientX, evt.clientY, it.label, [{ label: it.tooltipLabel || "값", value: valueFormat(it.value), color: it.color }]);
+      rect.setAttribute("opacity", "0.85");
+    });
+    hit.addEventListener("pointerleave", () => {
+      hideTooltip();
+      rect.setAttribute("opacity", "1");
+    });
+    barGroup.appendChild(hit);
+    svg.appendChild(barGroup);
+  });
+}
+
+// ---- 100% stacked bar (visit type by month) ----
+function stackedPercentBar(container, { categories, series, width = 560, height = 220 }) {
+  clear(container);
+  const marginL = 40, marginR = 12, marginT = 10, marginB = 26;
+  const plotW = width - marginL - marginR;
+  const plotH = height - marginT - marginB;
+  const n = categories.length;
+  const bandW = plotW / n;
+  const barW = Math.min(40, bandW * 0.6);
+  const gapPx = 2;
+
+  const svg = svgEl("svg", { viewBox: `0 0 ${width} ${height}`, width: "100%", height });
+  container.appendChild(svg);
+
+  [0, 0.25, 0.5, 0.75, 1].forEach((f) => {
+    const y = marginT + plotH * (1 - f);
+    svg.appendChild(svgEl("line", { x1: marginL, x2: width - marginR, y1: y, y2: y, class: "gridline" }));
+    const label = svgEl("text", { x: marginL - 8, y: y + 3, "text-anchor": "end", class: "axis-label" });
+    label.textContent = `${Math.round(f * 100)}%`;
+    svg.appendChild(label);
+  });
+
+  categories.forEach((cat, i) => {
+    const cx = marginL + bandW * i + bandW / 2;
+    const total = series.reduce((sum, s) => sum + (s.valuesByCategory[cat] || 0), 0) || 1;
+    let yCursor = marginT + plotH;
+    series.forEach((s) => {
+      const v = s.valuesByCategory[cat] || 0;
+      const segH = Math.max(0, (plotH * v) / total - gapPx);
+      const y = yCursor - segH;
+      const rect = svgEl("rect", { x: cx - barW / 2, y, width: barW, height: segH, style: `fill:${s.color}` });
+      svg.appendChild(rect);
+      const hit = svgEl("rect", { x: cx - barW / 2, y, width: barW, height: segH + gapPx, fill: "transparent" });
+      hit.addEventListener("pointermove", (evt) => {
+        showTooltip(evt.clientX, evt.clientY, cat, [{ label: s.name, value: `${fmtInt(v)}건 (${fmtPct(v / total)})`, color: s.color }]);
+      });
+      hit.addEventListener("pointerleave", hideTooltip);
+      svg.appendChild(hit);
+      yCursor = y - gapPx;
+    });
+    const label = svgEl("text", { x: cx, y: height - 6, "text-anchor": "middle", class: "axis-label" });
+    label.textContent = cat.slice(5);
+    svg.appendChild(label);
+  });
+
+  buildLegend(container, series.map((s) => ({ label: s.name, color: s.color })));
+}
+
+// ---- Heatmap grid ----
+function heatmapGrid(container, { rows, cols, valueAt, width = 560 }) {
+  clear(container);
+  const marginL = 34, marginT = 16, cellGap = 3;
+  const cellW = (width - marginL) / cols.length - cellGap;
+  const cellH = 24;
+  const height = marginT + rows.length * (cellH + cellGap);
+  const maxVal = Math.max(1, ...rows.flatMap((r) => cols.map((c) => valueAt(r, c))));
+
+  const svg = svgEl("svg", { viewBox: `0 0 ${width} ${height}`, width: "100%", height });
+  container.appendChild(svg);
+
+  cols.forEach((c, ci) => {
+    if (ci % 2 !== 0) return;
+    const label = svgEl("text", { x: marginL + ci * (cellW + cellGap) + cellW / 2, y: 10, "text-anchor": "middle", class: "axis-label" });
+    label.textContent = `${c}시`;
+    svg.appendChild(label);
+  });
+
+  rows.forEach((r, ri) => {
+    const y = marginT + ri * (cellH + cellGap);
+    const label = svgEl("text", { x: marginL - 8, y: y + cellH / 2 + 4, "text-anchor": "end", class: "axis-label" });
+    label.textContent = r;
+    svg.appendChild(label);
+
+    cols.forEach((c, ci) => {
+      const x = marginL + ci * (cellW + cellGap);
+      const v = valueAt(r, c);
+      const alpha = v === 0 ? 0.06 : 0.12 + 0.85 * (v / maxVal);
+      const rect = svgEl("rect", {
+        x, y, width: cellW, height: cellH, rx: 3,
+        style: `fill:rgba(var(--series-1-rgb),${alpha.toFixed(3)})`,
+      });
+      svg.appendChild(rect);
+      rect.addEventListener("pointermove", (evt) => {
+        showTooltip(evt.clientX, evt.clientY, `${r}요일 ${c}시`, [{ label: "예약 건수", value: fmtInt(v) }]);
+      });
+      rect.addEventListener("pointerleave", hideTooltip);
+    });
+  });
+}
+
+function statTile(container, label, value) {
+  const tile = document.createElement("div");
+  tile.className = "stat-tile";
+  const l = document.createElement("div");
+  l.className = "label";
+  l.textContent = label;
+  const v = document.createElement("div");
+  v.className = "value";
+  v.textContent = value;
+  tile.appendChild(l);
+  tile.appendChild(v);
+  container.appendChild(tile);
+}
+
+// ---------------------------------------------------------------
+
+const CHANNEL_COLOR = { 위챗: "var(--series-1)", 라인: "var(--series-2)", 미니: "var(--series-3)", 미상: "var(--series-muted)" };
+const STATUS_ORDER = ["예약완료", "기타", "시술문의", "예약문의", "가격문의", "변경/취소", "그 외"];
+const STATUS_COLOR = {
+  예약완료: "var(--series-1)", 기타: "var(--series-2)", 시술문의: "var(--series-3)",
+  예약문의: "var(--series-4)", 가격문의: "var(--series-5)", "변경/취소": "var(--series-6)", "그 외": "var(--series-7)",
+};
+const WEEKDAYS = ["월", "화", "수", "목", "금", "토", "일"];
+
+function isoWeekStart(dateStr) {
+  const d = new Date(dateStr + "T00:00:00");
+  const day = (d.getDay() + 6) % 7; // 0=Mon
+  d.setDate(d.getDate() - day);
+  return d.toISOString().slice(0, 10);
+}
+
+function sum(arr, fn) {
+  return arr.reduce((acc, x) => acc + fn(x), 0);
+}
+
+function groupSum(arr, keyFn, valFn = (x) => x.count) {
+  const map = new Map();
+  arr.forEach((x) => {
+    const k = keyFn(x);
+    map.set(k, (map.get(k) || 0) + valFn(x));
+  });
+  return map;
+}
+
+async function main() {
+  const res = await fetch("data/summary.json");
+  const data = await res.json();
+  console.log(`summary.json generated at ${data.generatedAt}, source rows ${data.sourceRowCount}, used rows ${data.usedRowCount}`);
+
+  const months = [...new Set(data.daily.map((d) => d.date.slice(0, 7)))].sort();
+  const monthFromSel = document.getElementById("monthFrom");
+  const monthToSel = document.getElementById("monthTo");
+  const channelSel = document.getElementById("channelFilter");
+
+  months.forEach((m) => {
+    monthFromSel.appendChild(new Option(m, m));
+    monthToSel.appendChild(new Option(m, m));
+  });
+  monthFromSel.value = months[0];
+  monthToSel.value = months[months.length - 1];
+
+  ["전체", "위챗", "라인", "미니"].forEach((c) => channelSel.appendChild(new Option(c, c)));
+
+  function activateTab(tabId) {
+    document.querySelectorAll(".tab-btn").forEach((b) => b.classList.toggle("active", b.dataset.tab === tabId));
+    document.querySelectorAll(".tab-panel").forEach((p) => p.classList.toggle("active", p.id === tabId));
+  }
+  document.querySelectorAll(".tab-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      activateTab(btn.dataset.tab);
+      history.replaceState(null, "", `#${btn.dataset.tab}`);
+    });
+  });
+  if (location.hash.slice(1)) activateTab(location.hash.slice(1));
+
+  function render() {
+    const mFrom = monthFromSel.value;
+    const mTo = monthToSel.value;
+    const channel = channelSel.value;
+    const inRange = (d) => d.date.slice(0, 7) >= mFrom && d.date.slice(0, 7) <= mTo;
+
+    const monthFiltered = data.daily.filter(inRange);
+    const filtered = monthFiltered.filter((d) => channel === "전체" || d.channel === channel);
+
+    renderKPIs(monthFiltered, filtered);
+    renderTrend(filtered);
+    renderChannel(monthFiltered);
+    renderVisitType(filtered);
+    renderStatus(filtered);
+    renderStaffMatrix(data.staffMonthly.filter((r) => r.month >= mFrom && r.month <= mTo));
+    renderProcedures(data.procedureMonthly.filter((r) => r.month >= mFrom && r.month <= mTo));
+    renderSlots(data.bookingSlots);
+  }
+
+  function renderKPIs(monthFiltered, filtered) {
+    const kpiRow = document.getElementById("kpiRow");
+    clear(kpiRow);
+    const total = sum(filtered, (d) => d.count);
+    const booked = sum(filtered.filter((d) => d.status === "예약완료"), (d) => d.count);
+    const firstVisit = sum(filtered.filter((d) => d.visitType === "초진"), (d) => d.count);
+    const returnVisit = sum(filtered.filter((d) => d.visitType === "재진"), (d) => d.count);
+    const visitTotal = firstVisit + returnVisit || 1;
+    const activeChannels = new Set(monthFiltered.filter((d) => d.channel !== "미상").map((d) => d.channel)).size;
+
+    statTile(kpiRow, "총 문의 건수", fmtInt(total));
+    statTile(kpiRow, "예약 전환율", fmtPct(total ? booked / total : 0));
+    statTile(kpiRow, "초진 비율", fmtPct(firstVisit / visitTotal));
+    statTile(kpiRow, "활성 채널 수", fmtInt(activeChannels));
+  }
+
+  function renderTrend(filtered) {
+    const byWeek = new Map();
+    filtered.forEach((d) => {
+      const wk = isoWeekStart(d.date);
+      if (!byWeek.has(wk)) byWeek.set(wk, { total: 0, booked: 0 });
+      const bucket = byWeek.get(wk);
+      bucket.total += d.count;
+      if (d.status === "예약완료") bucket.booked += d.count;
+    });
+    const weeks = [...byWeek.keys()].sort();
+    lineChart(document.getElementById("trendChart"), {
+      xLabels: weeks.map((w) => w.slice(5)),
+      series: [
+        { name: "문의량", color: "var(--series-1)", points: weeks.map((w) => byWeek.get(w).total) },
+        { name: "예약완료", color: "var(--series-2)", points: weeks.map((w) => byWeek.get(w).booked) },
+      ],
+      width: 1100,
+      height: 240,
+    });
+  }
+
+  function renderChannel(monthFiltered) {
+    const channels = ["위챗", "라인", "미니"];
+    const byChannel = groupSum(monthFiltered, (d) => d.channel);
+    const bookedByChannel = groupSum(monthFiltered.filter((d) => d.status === "예약완료"), (d) => d.channel);
+
+    hBarChart(document.getElementById("channelVolumeChart"), {
+      items: channels.map((c) => ({ label: c, value: byChannel.get(c) || 0, color: CHANNEL_COLOR[c], tooltipLabel: "문의 건수" })),
+      width: 500,
+    });
+    hBarChart(document.getElementById("channelRateChart"), {
+      items: channels.map((c) => {
+        const total = byChannel.get(c) || 0;
+        const booked = bookedByChannel.get(c) || 0;
+        return { label: c, value: total ? booked / total : 0, color: CHANNEL_COLOR[c], tooltipLabel: "전환율" };
+      }),
+      valueFormat: fmtPct,
+      width: 500,
+    });
+  }
+
+  function renderVisitType(filtered) {
+    const months = [...new Set(filtered.map((d) => d.date.slice(0, 7)))].sort();
+    const byMonthType = groupSum(filtered.filter((d) => d.visitType === "초진" || d.visitType === "재진"), (d) => `${d.date.slice(0, 7)}|${d.visitType}`);
+    const series = ["초진", "재진"].map((vt, i) => ({
+      name: vt,
+      color: i === 0 ? "var(--series-1)" : "var(--series-2)",
+      valuesByCategory: Object.fromEntries(months.map((m) => [m, byMonthType.get(`${m}|${vt}`) || 0])),
+    }));
+    stackedPercentBar(document.getElementById("visitTypeChart"), { categories: months, series, width: 500 });
+  }
+
+  function renderStatus(filtered) {
+    const byStatus = groupSum(filtered, (d) => d.status);
+    const known = STATUS_ORDER.slice(0, 6);
+    let otherTotal = 0;
+    byStatus.forEach((v, k) => {
+      if (!known.includes(k)) otherTotal += v;
+    });
+    const items = known
+      .map((k) => ({ label: k, value: byStatus.get(k) || 0, color: STATUS_COLOR[k] }))
+      .concat([{ label: "그 외", value: otherTotal, color: STATUS_COLOR["그 외"] }])
+      .sort((a, b) => b.value - a.value);
+    hBarChart(document.getElementById("statusChart"), { items, width: 500 });
+  }
+
+  function renderStaffMatrix(rows) {
+    const staff = [...new Set(rows.map((r) => r.staff))].sort();
+    const months = [...new Set(rows.map((r) => r.month))].sort();
+    const totalByKey = groupSum(rows, (r) => `${r.staff}|${r.month}`);
+    const bookedByKey = groupSum(rows.filter((r) => r.booked), (r) => `${r.staff}|${r.month}`);
+    const maxVal = Math.max(1, ...staff.flatMap((s) => months.map((m) => totalByKey.get(`${s}|${m}`) || 0)));
+
+    const container = document.getElementById("staffMatrix");
+    clear(container);
+    const table = document.createElement("table");
+    table.className = "matrix";
+    const thead = document.createElement("thead");
+    const headRow = document.createElement("tr");
+    headRow.appendChild(document.createElement("th"));
+    months.forEach((m) => {
+      const th = document.createElement("th");
+      th.textContent = m;
+      headRow.appendChild(th);
+    });
+    thead.appendChild(headRow);
+    table.appendChild(thead);
+
+    const tbody = document.createElement("tbody");
+    staff.forEach((s) => {
+      const tr = document.createElement("tr");
+      const nameTd = document.createElement("td");
+      nameTd.textContent = s;
+      tr.appendChild(nameTd);
+      months.forEach((m) => {
+        const total = totalByKey.get(`${s}|${m}`) || 0;
+        const booked = bookedByKey.get(`${s}|${m}`) || 0;
+        const td = document.createElement("td");
+        td.className = "cell";
+        const alpha = total === 0 ? 0 : 0.1 + 0.8 * (total / maxVal);
+        td.style.background = `rgba(var(--series-1-rgb),${alpha.toFixed(3)})`;
+        const countSpan = document.createElement("span");
+        countSpan.textContent = total ? fmtInt(total) : "-";
+        td.appendChild(countSpan);
+        if (total) {
+          const rateSpan = document.createElement("span");
+          rateSpan.className = "rate";
+          rateSpan.textContent = fmtPct(booked / total);
+          td.appendChild(rateSpan);
+        }
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    container.appendChild(table);
+  }
+
+  function renderProcedures(rows) {
+    const byProc = groupSum(rows, (r) => r.procedure);
+    const items = [...byProc.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10)
+      .map(([label, value]) => ({ label, value, color: "var(--series-1)" }));
+    hBarChart(document.getElementById("procedureChart"), { items, width: 500 });
+  }
+
+  function renderSlots(rows) {
+    const hours = [...new Set(rows.map((r) => r.hour))].sort((a, b) => a - b);
+    const valueAt = (weekday, hour) => {
+      const row = rows.find((r) => r.weekday === weekday && r.hour === hour);
+      return row ? row.count : 0;
+    };
+    heatmapGrid(document.getElementById("slotHeatmap"), { rows: WEEKDAYS, cols: hours, valueAt, width: 500 });
+  }
+
+  monthFromSel.addEventListener("change", render);
+  monthToSel.addEventListener("change", render);
+  channelSel.addEventListener("change", render);
+  window.addEventListener("resize", render);
+
+  render();
+}
+
+main().catch((err) => {
+  console.error(err);
+  document.querySelector(".app").insertAdjacentHTML(
+    "beforeend",
+    `<p style="color:var(--series-8)">데이터 로드 실패: ${err.message}</p>`
+  );
+});
