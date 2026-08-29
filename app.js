@@ -326,6 +326,15 @@ const STATUS_COLOR = {
 };
 const WEEKDAYS = ["월", "화", "수", "목", "금", "토", "일"];
 
+const STAGE_ORDER = ["답변없음", "협찬거절", "협의중", "예약완료", "방문완료", "업로드완료", "기타"];
+const STAGE_COLOR = {
+  답변없음: "var(--series-muted)", 협찬거절: "var(--series-8)", 협의중: "var(--series-4)",
+  예약완료: "var(--series-5)", 방문완료: "var(--series-2)", 업로드완료: "var(--series-1)", 기타: "var(--series-7)",
+};
+const FOLLOWER_TIER_ORDER = ["1만 미만", "1만~5만", "5만~10만", "10만 이상", "미상"];
+const UPLOADED_STAGE = "업로드완료";
+const DEAD_STAGES = new Set(["답변없음", "협찬거절"]);
+
 function isoWeekStart(dateStr) {
   const d = new Date(dateStr + "T00:00:00");
   const day = (d.getDay() + 6) % 7; // 0=Mon
@@ -365,6 +374,12 @@ async function main() {
 
   ["전체", "위챗", "라인", "미니"].forEach((c) => channelSel.appendChild(new Option(c, c)));
 
+  const influencerCountrySel = document.getElementById("influencerCountry");
+  const countryTotals = groupSum(data.influencerFunnel, (r) => r.country);
+  const countries = [...countryTotals.entries()].sort((a, b) => b[1] - a[1]).map(([c]) => c);
+  influencerCountrySel.appendChild(new Option("전체", "전체"));
+  countries.forEach((c) => influencerCountrySel.appendChild(new Option(c, c)));
+
   function activateTab(tabId) {
     document.querySelectorAll(".tab-btn").forEach((b) => b.classList.toggle("active", b.dataset.tab === tabId));
     document.querySelectorAll(".tab-panel").forEach((p) => p.classList.toggle("active", p.id === tabId));
@@ -394,6 +409,45 @@ async function main() {
     renderStaffMatrix(data.staffMonthly.filter((r) => r.month >= mFrom && r.month <= mTo));
     renderProcedures(data.procedureMonthly.filter((r) => r.month >= mFrom && r.month <= mTo));
     renderSlots(data.bookingSlots);
+    renderInfluencer(influencerCountrySel.value);
+  }
+
+  function renderInfluencer(country) {
+    const filtered = data.influencerFunnel.filter((r) => country === "전체" || r.country === country);
+
+    const kpiRow = document.getElementById("influencerKpiRow");
+    clear(kpiRow);
+    const total = sum(filtered, (r) => r.count);
+    const uploaded = sum(filtered.filter((r) => r.stage === UPLOADED_STAGE), (r) => r.count);
+    const dead = sum(filtered.filter((r) => DEAD_STAGES.has(r.stage)), (r) => r.count);
+    const inTalks = sum(filtered.filter((r) => r.stage === "협의중"), (r) => r.count);
+    statTile(kpiRow, "총 컨택 건수", fmtInt(total));
+    statTile(kpiRow, "업로드 전환율", fmtPct(total ? uploaded / total : 0));
+    statTile(kpiRow, "응답률 (무응답·거절 제외)", fmtPct(total ? 1 - dead / total : 0));
+    statTile(kpiRow, "협의중 비율", fmtPct(total ? inTalks / total : 0));
+
+    const byStage = groupSum(filtered, (r) => r.stage);
+    hBarChart(document.getElementById("influencerFunnelChart"), {
+      items: STAGE_ORDER.filter((s) => byStage.has(s)).map((s) => ({
+        label: s, value: byStage.get(s) || 0, color: STAGE_COLOR[s], tooltipLabel: "건수",
+      })),
+      width: 1080,
+    });
+
+    const staffTotal = groupSum(filtered, (r) => r.staff);
+    const staffUploaded = groupSum(filtered.filter((r) => r.stage === UPLOADED_STAGE), (r) => r.staff);
+    const staffItems = [...staffTotal.entries()]
+      .filter(([, v]) => v >= 3)
+      .map(([s, v]) => ({ label: s, value: (staffUploaded.get(s) || 0) / v, color: "var(--series-1)", tooltipLabel: "전환율" }))
+      .sort((a, b) => b.value - a.value);
+    hBarChart(document.getElementById("influencerStaffChart"), { items: staffItems, valueFormat: fmtPct, width: 500 });
+
+    const tierTotal = groupSum(filtered, (r) => r.followerTier);
+    const tierUploaded = groupSum(filtered.filter((r) => r.stage === UPLOADED_STAGE), (r) => r.followerTier);
+    const tierItems = FOLLOWER_TIER_ORDER.filter((t) => tierTotal.has(t)).map((t) => ({
+      label: t, value: (tierUploaded.get(t) || 0) / tierTotal.get(t), color: "var(--series-1)", tooltipLabel: "전환율",
+    }));
+    hBarChart(document.getElementById("influencerTierChart"), { items: tierItems, valueFormat: fmtPct, width: 500 });
   }
 
   function renderKPIs(monthFiltered, filtered) {
@@ -551,6 +605,7 @@ async function main() {
   monthFromSel.addEventListener("change", render);
   monthToSel.addEventListener("change", render);
   channelSel.addEventListener("change", render);
+  influencerCountrySel.addEventListener("change", render);
   window.addEventListener("resize", render);
 
   render();

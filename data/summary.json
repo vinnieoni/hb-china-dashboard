@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-29T19:03:37",
+  "generatedAt": "2026-08-29T19:30:08",
   "sourceRowCount": 5016,
   "usedRowCount": 4137,
   "daily": [
@@ -12101,6 +12101,528 @@
       "weekday": "일",
       "hour": 17,
       "count": 2
+    }
+  ],
+  "influencerSourceRowCount": 666,
+  "influencerUsedRowCount": 635,
+  "influencerFunnel": [
+    {
+      "country": "대만",
+      "staff": "시나",
+      "followerTier": "1만 미만",
+      "stage": "방문완료",
+      "count": 2
+    },
+    {
+      "country": "대만",
+      "staff": "시나",
+      "followerTier": "1만 미만",
+      "stage": "업로드완료",
+      "count": 3
+    },
+    {
+      "country": "대만",
+      "staff": "시나",
+      "followerTier": "1만 미만",
+      "stage": "예약완료",
+      "count": 3
+    },
+    {
+      "country": "대만",
+      "staff": "시나",
+      "followerTier": "1만 미만",
+      "stage": "협찬거절",
+      "count": 1
+    },
+    {
+      "country": "대만",
+      "staff": "시나",
+      "followerTier": "미상",
+      "stage": "답변없음",
+      "count": 19
+    },
+    {
+      "country": "대만",
+      "staff": "시나",
+      "followerTier": "미상",
+      "stage": "예약완료",
+      "count": 2
+    },
+    {
+      "country": "대만",
+      "staff": "시나",
+      "followerTier": "미상",
+      "stage": "협의중",
+      "count": 5
+    },
+    {
+      "country": "대만",
+      "staff": "시나",
+      "followerTier": "미상",
+      "stage": "협찬거절",
+      "count": 2
+    },
+    {
+      "country": "대만",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "예약완료",
+      "count": 1
+    },
+    {
+      "country": "러시아",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협찬거절",
+      "count": 1
+    },
+    {
+      "country": "말레이시아",
+      "staff": "앤",
+      "followerTier": "1만 미만",
+      "stage": "예약완료",
+      "count": 1
+    },
+    {
+      "country": "말레이시아",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "답변없음",
+      "count": 1
+    },
+    {
+      "country": "말레이시아",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협의중",
+      "count": 1
+    },
+    {
+      "country": "말레이시아",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협찬거절",
+      "count": 1
+    },
+    {
+      "country": "몽골",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "답변없음",
+      "count": 1
+    },
+    {
+      "country": "몽골",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협의중",
+      "count": 2
+    },
+    {
+      "country": "미국",
+      "staff": "RARA",
+      "followerTier": "10만 이상",
+      "stage": "협의중",
+      "count": 2
+    },
+    {
+      "country": "미국",
+      "staff": "앤",
+      "followerTier": "10만 이상",
+      "stage": "협의중",
+      "count": 1
+    },
+    {
+      "country": "미국",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협의중",
+      "count": 1
+    },
+    {
+      "country": "미국",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협찬거절",
+      "count": 1
+    },
+    {
+      "country": "미상",
+      "staff": "RARA",
+      "followerTier": "10만 이상",
+      "stage": "협의중",
+      "count": 5
+    },
+    {
+      "country": "미상",
+      "staff": "RARA",
+      "followerTier": "1만~5만",
+      "stage": "협의중",
+      "count": 2
+    },
+    {
+      "country": "미상",
+      "staff": "RARA",
+      "followerTier": "5만~10만",
+      "stage": "협의중",
+      "count": 4
+    },
+    {
+      "country": "미상",
+      "staff": "앤",
+      "followerTier": "1만 미만",
+      "stage": "협의중",
+      "count": 1
+    },
+    {
+      "country": "미상",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "답변없음",
+      "count": 11
+    },
+    {
+      "country": "미상",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협의중",
+      "count": 35
+    },
+    {
+      "country": "미상",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협찬거절",
+      "count": 3
+    },
+    {
+      "country": "베트남",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "답변없음",
+      "count": 1
+    },
+    {
+      "country": "브라질",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협의중",
+      "count": 1
+    },
+    {
+      "country": "스페인",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협의중",
+      "count": 2
+    },
+    {
+      "country": "싱가포르",
+      "staff": "CS",
+      "followerTier": "미상",
+      "stage": "예약완료",
+      "count": 1
+    },
+    {
+      "country": "아프리카",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협의중",
+      "count": 1
+    },
+    {
+      "country": "인도",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "답변없음",
+      "count": 2
+    },
+    {
+      "country": "인도네시아",
+      "staff": "앤",
+      "followerTier": "1만 미만",
+      "stage": "협의중",
+      "count": 1
+    },
+    {
+      "country": "인도네시아",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "예약완료",
+      "count": 1
+    },
+    {
+      "country": "인도네시아",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협의중",
+      "count": 3
+    },
+    {
+      "country": "일본",
+      "staff": "CS팀",
+      "followerTier": "10만 이상",
+      "stage": "협의중",
+      "count": 8
+    },
+    {
+      "country": "일본",
+      "staff": "CS팀",
+      "followerTier": "10만 이상",
+      "stage": "협찬거절",
+      "count": 2
+    },
+    {
+      "country": "일본",
+      "staff": "CS팀",
+      "followerTier": "1만 미만",
+      "stage": "협의중",
+      "count": 1
+    },
+    {
+      "country": "일본",
+      "staff": "CS팀",
+      "followerTier": "1만~5만",
+      "stage": "업로드완료",
+      "count": 1
+    },
+    {
+      "country": "일본",
+      "staff": "CS팀",
+      "followerTier": "1만~5만",
+      "stage": "협의중",
+      "count": 50
+    },
+    {
+      "country": "일본",
+      "staff": "CS팀",
+      "followerTier": "1만~5만",
+      "stage": "협찬거절",
+      "count": 3
+    },
+    {
+      "country": "일본",
+      "staff": "CS팀",
+      "followerTier": "5만~10만",
+      "stage": "협의중",
+      "count": 45
+    },
+    {
+      "country": "일본",
+      "staff": "미상",
+      "followerTier": "미상",
+      "stage": "업로드완료",
+      "count": 1
+    },
+    {
+      "country": "일본",
+      "staff": "수지",
+      "followerTier": "1만 미만",
+      "stage": "방문완료",
+      "count": 1
+    },
+    {
+      "country": "일본",
+      "staff": "수지",
+      "followerTier": "1만 미만",
+      "stage": "협의중",
+      "count": 18
+    },
+    {
+      "country": "일본",
+      "staff": "수지",
+      "followerTier": "1만~5만",
+      "stage": "협의중",
+      "count": 4
+    },
+    {
+      "country": "일본",
+      "staff": "수지",
+      "followerTier": "1만~5만",
+      "stage": "협찬거절",
+      "count": 1
+    },
+    {
+      "country": "일본",
+      "staff": "애쉬",
+      "followerTier": "10만 이상",
+      "stage": "협의중",
+      "count": 1
+    },
+    {
+      "country": "일본",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협의중",
+      "count": 1
+    },
+    {
+      "country": "중국",
+      "staff": "아일라",
+      "followerTier": "1만 미만",
+      "stage": "답변없음",
+      "count": 121
+    },
+    {
+      "country": "중국",
+      "staff": "아일라",
+      "followerTier": "1만 미만",
+      "stage": "방문완료",
+      "count": 19
+    },
+    {
+      "country": "중국",
+      "staff": "아일라",
+      "followerTier": "1만 미만",
+      "stage": "예약완료",
+      "count": 5
+    },
+    {
+      "country": "중국",
+      "staff": "아일라",
+      "followerTier": "1만 미만",
+      "stage": "협의중",
+      "count": 22
+    },
+    {
+      "country": "중국",
+      "staff": "아일라",
+      "followerTier": "1만 미만",
+      "stage": "협찬거절",
+      "count": 53
+    },
+    {
+      "country": "중국",
+      "staff": "아일라",
+      "followerTier": "1만~5만",
+      "stage": "답변없음",
+      "count": 1
+    },
+    {
+      "country": "중국",
+      "staff": "아일라",
+      "followerTier": "미상",
+      "stage": "답변없음",
+      "count": 66
+    },
+    {
+      "country": "중국",
+      "staff": "아일라",
+      "followerTier": "미상",
+      "stage": "방문완료",
+      "count": 4
+    },
+    {
+      "country": "중국",
+      "staff": "아일라",
+      "followerTier": "미상",
+      "stage": "협의중",
+      "count": 21
+    },
+    {
+      "country": "중국",
+      "staff": "아일라",
+      "followerTier": "미상",
+      "stage": "협찬거절",
+      "count": 24
+    },
+    {
+      "country": "중국",
+      "staff": "율리",
+      "followerTier": "미상",
+      "stage": "협의중",
+      "count": 2
+    },
+    {
+      "country": "중국",
+      "staff": "이젤",
+      "followerTier": "1만 미만",
+      "stage": "답변없음",
+      "count": 16
+    },
+    {
+      "country": "중국",
+      "staff": "이젤",
+      "followerTier": "1만 미만",
+      "stage": "방문완료",
+      "count": 1
+    },
+    {
+      "country": "중국",
+      "staff": "이젤",
+      "followerTier": "1만 미만",
+      "stage": "협의중",
+      "count": 5
+    },
+    {
+      "country": "중국",
+      "staff": "이젤",
+      "followerTier": "1만 미만",
+      "stage": "협찬거절",
+      "count": 1
+    },
+    {
+      "country": "중국",
+      "staff": "이젤",
+      "followerTier": "미상",
+      "stage": "답변없음",
+      "count": 3
+    },
+    {
+      "country": "중국",
+      "staff": "이젤",
+      "followerTier": "미상",
+      "stage": "협찬거절",
+      "count": 1
+    },
+    {
+      "country": "중동",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협찬거절",
+      "count": 1
+    },
+    {
+      "country": "카자흐스탄",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "답변없음",
+      "count": 1
+    },
+    {
+      "country": "페루",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협의중",
+      "count": 1
+    },
+    {
+      "country": "프랑스",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협의중",
+      "count": 2
+    },
+    {
+      "country": "한국",
+      "staff": "시나",
+      "followerTier": "미상",
+      "stage": "협의중",
+      "count": 1
+    },
+    {
+      "country": "한국",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "예약완료",
+      "count": 1
+    },
+    {
+      "country": "홍콩",
+      "staff": "앤",
+      "followerTier": "미상",
+      "stage": "협찬거절",
+      "count": 1
     }
   ]
 }

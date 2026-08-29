@@ -28,6 +28,7 @@
     <div class="tabs">
       <button class="tab-btn active" data-tab="tab-booking">예약·전환</button>
       <button class="tab-btn" data-tab="tab-staff">채널·담당자</button>
+      <button class="tab-btn" data-tab="tab-influencer">인플루언서 퍼널</button>
     </div>
 
     <section id="tab-booking" class="tab-panel active">
@@ -73,6 +74,32 @@
         <h2>요일 × 시간대 예약 분포</h2>
         <p class="subtitle">예약일시 기준 히트맵</p>
         <div id="slotHeatmap"></div>
+      </div>
+    </section>
+
+    <section id="tab-influencer" class="tab-panel">
+      <div class="card full">
+        <p class="subtitle">인플루언서 시딩 관리시트(5개국/프로그램 시트) 집계 — 소셜 아이디·연락처 등 개인 식별 정보는 포함되지 않습니다.</p>
+        <div class="filter-row" style="margin:0 0 4px">
+          <label for="influencerCountry">국가</label>
+          <select id="influencerCountry"></select>
+        </div>
+      </div>
+      <div class="kpi-row" id="influencerKpiRow" style="grid-column:1 / -1"></div>
+      <div class="card full" id="influencerFunnelCard">
+        <h2>퍼널 단계별 건수</h2>
+        <p class="subtitle">답변없음/거절 → 협의중 → 예약완료 → 방문완료 → 업로드완료</p>
+        <div id="influencerFunnelChart"></div>
+      </div>
+      <div class="card" id="influencerStaffCard">
+        <h2>담당자별 업로드 전환율</h2>
+        <p class="subtitle">업로드완료 ÷ 총 컨택 건수 (선택 국가 기준)</p>
+        <div id="influencerStaffChart"></div>
+      </div>
+      <div class="card" id="influencerTierCard">
+        <h2>팔로워 구간별 업로드 전환율</h2>
+        <p class="subtitle">선택 국가 기준</p>
+        <div id="influencerTierChart"></div>
       </div>
     </section>
 
