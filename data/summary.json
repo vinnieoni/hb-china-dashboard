@@ -1,6 +1,6 @@
 {
-  "sourceRowCount": 4426,
-  "usedRowCount": 4155,
+  "sourceRowCount": 4419,
+  "usedRowCount": 4148,
   "daily": [
     {
       "date": "2026-05-06",
@@ -4652,13 +4652,6 @@
     },
     {
       "date": "2026-08-30",
-      "channel": "미상",
-      "visitType": "미상",
-      "status": "미상",
-      "count": 5
-    },
-    {
-      "date": "2026-08-30",
       "channel": "위챗",
       "visitType": "재진",
       "status": "예약완료",
@@ -4669,7 +4662,7 @@
       "channel": "위챗",
       "visitType": "초진",
       "status": "예약완료",
-      "count": 20
+      "count": 18
     }
   ],
   "staffMonthly": [
@@ -4785,7 +4778,7 @@
       "month": "2026-08",
       "staff": "제니스",
       "booked": true,
-      "count": 352
+      "count": 350
     },
     {
       "month": "2026-08",
@@ -13423,6 +13416,195 @@
       "pairedCount": 8
     }
   ],
+  "contentStaff": [
+    {
+      "month": "2025-09",
+      "staff": "율리",
+      "count": 5
+    },
+    {
+      "month": "2025-10",
+      "staff": "율리",
+      "count": 120
+    },
+    {
+      "month": "2025-11",
+      "staff": "율리",
+      "count": 60
+    },
+    {
+      "month": "2025-12",
+      "staff": "율리",
+      "count": 20
+    },
+    {
+      "month": "2026-05",
+      "staff": "비니",
+      "count": 1
+    },
+    {
+      "month": "2026-06",
+      "staff": "루카스",
+      "count": 9
+    },
+    {
+      "month": "2026-06",
+      "staff": "비니",
+      "count": 16
+    },
+    {
+      "month": "2026-06",
+      "staff": "수지",
+      "count": 3
+    },
+    {
+      "month": "2026-06",
+      "staff": "시나",
+      "count": 12
+    },
+    {
+      "month": "2026-06",
+      "staff": "아일라",
+      "count": 5
+    },
+    {
+      "month": "2026-06",
+      "staff": "앤",
+      "count": 9
+    },
+    {
+      "month": "2026-06",
+      "staff": "케일",
+      "count": 29
+    },
+    {
+      "month": "2026-07",
+      "staff": "루카스",
+      "count": 5
+    },
+    {
+      "month": "2026-07",
+      "staff": "비니",
+      "count": 8
+    },
+    {
+      "month": "2026-07",
+      "staff": "수지",
+      "count": 1
+    },
+    {
+      "month": "2026-07",
+      "staff": "시나",
+      "count": 5
+    },
+    {
+      "month": "2026-07",
+      "staff": "아일라",
+      "count": 2
+    },
+    {
+      "month": "2026-07",
+      "staff": "앤",
+      "count": 16
+    },
+    {
+      "month": "2026-07",
+      "staff": "케일",
+      "count": 22
+    }
+  ],
+  "contentTargets": [
+    {
+      "month": "2025-09",
+      "target": "루호",
+      "count": 5
+    },
+    {
+      "month": "2025-10",
+      "target": "루호",
+      "count": 45
+    },
+    {
+      "month": "2025-10",
+      "target": "셀로라",
+      "count": 35
+    },
+    {
+      "month": "2025-10",
+      "target": "지유",
+      "count": 40
+    },
+    {
+      "month": "2025-11",
+      "target": "셀로라",
+      "count": 20
+    },
+    {
+      "month": "2025-11",
+      "target": "지유",
+      "count": 40
+    },
+    {
+      "month": "2025-12",
+      "target": "루호",
+      "count": 20
+    },
+    {
+      "month": "2026-05",
+      "target": "실장님",
+      "count": 1
+    },
+    {
+      "month": "2026-06",
+      "target": "루호",
+      "count": 28
+    },
+    {
+      "month": "2026-06",
+      "target": "실장님",
+      "count": 5
+    },
+    {
+      "month": "2026-06",
+      "target": "일산",
+      "count": 5
+    },
+    {
+      "month": "2026-06",
+      "target": "지유",
+      "count": 43
+    },
+    {
+      "month": "2026-06",
+      "target": "코난",
+      "count": 2
+    },
+    {
+      "month": "2026-07",
+      "target": "루호",
+      "count": 11
+    },
+    {
+      "month": "2026-07",
+      "target": "셀로라",
+      "count": 1
+    },
+    {
+      "month": "2026-07",
+      "target": "실장님",
+      "count": 1
+    },
+    {
+      "month": "2026-07",
+      "target": "일산",
+      "count": 4
+    },
+    {
+      "month": "2026-07",
+      "target": "지유",
+      "count": 42
+    }
+  ],
   "experienceSourceRowCount": 123,
   "experienceUsedRowCount": 121,
   "experienceBookings": [
@@ -14103,5 +14285,5 @@
       "pairedCount": 34
     }
   ],
-  "generatedAt": "2026-08-30T09:24:48"
+  "generatedAt": "2026-08-30T14:09:22"
 }
