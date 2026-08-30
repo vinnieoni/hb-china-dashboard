@@ -1,0 +1,20 @@
+name: Debug - list live sheet tab names
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install google-api-python-client google-auth
+      - env:
+          GOOGLE_APPLICATION_CREDENTIALS: /tmp/sa-key.json
+        run: |
+          echo '${{ secrets.GOOGLE_SA_KEY }}' > /tmp/sa-key.json
+          python3 pipeline/_debug_metadata.py
+          rm -f /tmp/sa-key.json
