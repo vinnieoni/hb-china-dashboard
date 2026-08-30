@@ -165,8 +165,8 @@ def sync():
     daily, staff, procedures, slots, n_total, n_used = build_cs_bookings(rows_by_sheet[SHEET_NAME])
     influencer, inf_total, inf_used = build_influencer_funnel(rows_by_sheet)
     mega_roi, roi_total, roi_used = build_mega_roi(rows_by_sheet)
-    content_uploads, content_engagement, content_total, content_used = build_content_performance(
-        rows_by_sheet
+    content_uploads, content_engagement, content_staff, content_targets, content_total, content_used = (
+        build_content_performance(rows_by_sheet)
     )
     experience_bookings, experience_slots, exp_total, exp_used = build_experience_bookings(
         rows_by_sheet
@@ -190,6 +190,8 @@ def sync():
         "contentUsedRowCount": content_used,
         "contentUploads": content_uploads,
         "contentEngagement": content_engagement,
+        "contentStaff": content_staff,
+        "contentTargets": content_targets,
         "experienceSourceRowCount": exp_total,
         "experienceUsedRowCount": exp_used,
         "experienceBookings": experience_bookings,

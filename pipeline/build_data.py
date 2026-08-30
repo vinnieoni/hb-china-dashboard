@@ -443,8 +443,9 @@ def build_cs_bookings(rows):
 
 
 def build_content_performance(rows_by_sheet):
-    """콘텐츠 업로드 관리 시트(전체통합)를 월/국가/플랫폼/상태 단위로 집계.
-    Links(원본 게시물 링크), 인사이트취합일은 읽지 않는다.
+    """콘텐츠 업로드 관리 시트(전체통합)를 월/국가/플랫폼/상태/담당자/대상 단위로 집계.
+    Links(원본 게시물 링크), 인사이트취합일, 영상구분(자유 텍스트라 실명·캠페인명이 섞여 있어
+    안전하게 집계할 수 없음)은 읽지 않는다.
     rows_by_sheet: {시트명: 행리스트}. 로컬 xlsx든 구글 시트 API든 이 형태로만 넘기면 됨.
     """
     rows = rows_by_sheet[CONTENT_SHEET]
@@ -461,6 +462,8 @@ def build_content_performance(rows_by_sheet):
     n_total = 0
     n_used = 0
     upload_counter = collections.Counter()  # (month, country, platform, status)
+    staff_counter = collections.Counter()  # (month, staff)
+    target_counter = collections.Counter()  # (month, target)
     engagement_acc = collections.defaultdict(lambda: {
         "likesSum": 0.0, "likesCount": 0,
         "commentsSum": 0.0, "commentsCount": 0,
@@ -486,6 +489,14 @@ def build_content_performance(rows_by_sheet):
         month_key = upload_date.strftime("%Y-%m")
 
         upload_counter[(month_key, country, platform, status)] += 1
+
+        staff = clean_str(get(r, "담당자"))
+        if staff:
+            staff_counter[(month_key, staff)] += 1
+
+        target = clean_str(get(r, "대상"))
+        if target:
+            target_counter[(month_key, target)] += 1
 
         likes = parse_numeric(get(r, "좋아요"))
         comments = parse_numeric(get(r, "댓글"))
@@ -522,7 +533,15 @@ def build_content_performance(rows_by_sheet):
         {"month": m, "platform": p, **{k: (round(v, 4) if isinstance(v, float) else v) for k, v in b.items()}}
         for (m, p), b in sorted(engagement_acc.items())
     ]
-    return uploads, engagement, n_total, n_used
+    staff = [
+        {"month": m, "staff": s, "count": cnt}
+        for (m, s), cnt in sorted(staff_counter.items())
+    ]
+    targets = [
+        {"month": m, "target": t, "count": cnt}
+        for (m, t), cnt in sorted(target_counter.items())
+    ]
+    return uploads, engagement, staff, targets, n_total, n_used
 
 
 def build_viral_posting(rows_by_sheet):
@@ -618,8 +637,8 @@ def build():
     mega_roi, roi_total, roi_used = build_mega_roi(influencer_rows_by_sheet)
 
     content_rows_by_sheet = load_local_workbook_rows(CONTENT_PATH, [CONTENT_SHEET])
-    content_uploads, content_engagement, content_total, content_used = build_content_performance(
-        content_rows_by_sheet
+    content_uploads, content_engagement, content_staff, content_targets, content_total, content_used = (
+        build_content_performance(content_rows_by_sheet)
     )
 
     experience_rows_by_sheet = load_local_workbook_rows(EXPERIENCE_PATH, EXPERIENCE_SHEETS)
@@ -650,6 +669,8 @@ def build():
         "contentUsedRowCount": content_used,
         "contentUploads": content_uploads,
         "contentEngagement": content_engagement,
+        "contentStaff": content_staff,
+        "contentTargets": content_targets,
         "experienceSourceRowCount": exp_total,
         "experienceUsedRowCount": exp_used,
         "experienceBookings": experience_bookings,

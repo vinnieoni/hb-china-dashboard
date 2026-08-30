@@ -571,6 +571,18 @@ async function main() {
       .map(([label, value]) => ({ label, value, color: "var(--series-1)", tooltipLabel: "업로드 건수" }));
     hBarChart(document.getElementById("contentPlatformChart"), { items: platformItems, width: 500 });
 
+    const byStaff = groupSum(data.contentStaff, (r) => r.staff);
+    const staffItems = [...byStaff.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .map(([label, value]) => ({ label, value, color: "var(--series-1)", tooltipLabel: "업로드 건수" }));
+    hBarChart(document.getElementById("contentStaffChart"), { items: staffItems, width: 500 });
+
+    const byTarget = groupSum(data.contentTargets, (r) => r.target);
+    const targetItems = [...byTarget.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .map(([label, value]) => ({ label, value, color: "var(--series-1)", tooltipLabel: "업로드 건수" }));
+    hBarChart(document.getElementById("contentTargetChart"), { items: targetItems, width: 500 });
+
     // 참고용 부분 표본: 좋아요·조회수가 둘 다 기록된 게시물만 대상으로 비율 산출
     const pairedLikes = groupSum(engagement, (r) => r.platform, (r) => r.pairedLikesSum);
     const pairedViews = groupSum(engagement, (r) => r.platform, (r) => r.pairedViewsSum);
