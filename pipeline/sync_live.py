@@ -17,6 +17,7 @@ from googleapiclient.discovery import build as build_service
 
 sys.path.insert(0, os.path.dirname(__file__))
 from build_data import (  # noqa: E402
+    COLS,
     CONTENT_SHEET,
     EXPERIENCE_SHEETS,
     INFLUENCER_SHEETS,
@@ -30,7 +31,66 @@ from build_data import (  # noqa: E402
     build_influencer_funnel,
     build_mega_roi,
     build_viral_posting,
+    find_header_row,
 )
+
+# 구글 시트 API를 valueRenderOption=UNFORMATTED_VALUE로 호출하면 날짜/시간 셀이
+# (openpyxl처럼 datetime 객체가 아니라) 1899-12-30 기준 일련번호로 온다.
+# 각 빌더는 openpyxl 타입(datetime/time)을 기대하므로, 빌더에 넘기기 전에
+# "날짜/시간으로 알려진 컬럼"만 골라 되돌려 놓는다. 그 외 숫자 컬럼(팔로워 수,
+# 견적 등)은 UNFORMATTED_VALUE 그대로 두어야 parse_numeric류가 정상 동작한다.
+GSHEET_EPOCH = datetime.datetime(1899, 12, 30)
+
+
+def serial_to_datetime(v):
+    if isinstance(v, bool) or not isinstance(v, (int, float)):
+        return v
+    days = int(v)
+    dt = GSHEET_EPOCH + datetime.timedelta(days=days)
+    frac = v - days
+    if frac:
+        dt += datetime.timedelta(seconds=round(frac * 86400))
+    return dt
+
+
+def serial_to_time(v):
+    if isinstance(v, bool) or not isinstance(v, (int, float)):
+        return v
+    seconds = round((v % 1) * 86400)
+    return (datetime.datetime.min + datetime.timedelta(seconds=seconds)).time()
+
+
+def fix_date_time_columns(rows, header_idx, date_idx=(), time_idx=()):
+    if not date_idx and not time_idx:
+        return rows
+    fixed = []
+    for i, r in enumerate(rows):
+        if i <= header_idx:
+            fixed.append(r)
+            continue
+        r = list(r)
+        for p in date_idx:
+            if p < len(r):
+                r[p] = serial_to_datetime(r[p])
+        for p in time_idx:
+            if p < len(r):
+                r[p] = serial_to_time(r[p])
+        fixed.append(r)
+    return fixed
+
+
+def fix_named_date_time_columns(rows, header_marker, date_names=(), time_names=()):
+    header_idx = find_header_row(rows, header_marker)
+    if header_idx >= len(rows):
+        return rows
+    header = rows[header_idx]
+    col_idx = {}
+    for i, v in enumerate(header):
+        if v and str(v).strip() not in col_idx:
+            col_idx[str(v).strip()] = i
+    date_idx = [col_idx[n] for n in date_names if n in col_idx]
+    time_idx = [col_idx[n] for n in time_names if n in col_idx]
+    return fix_date_time_columns(rows, header_idx, date_idx, time_idx)
 
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 KEY_PATH = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
@@ -70,6 +130,25 @@ def fetch_all_rows(values_api):
                 valueRenderOption="UNFORMATTED_VALUE",
             ).execute()
             all_rows[local_name] = result.get("values", [])
+
+    # CS: 타이틀행(0)+헤더행(1) 뒤부터 데이터, 날짜/시간 컬럼은 고정 인덱스(COLS)로 알려져 있음
+    all_rows[SHEET_NAME] = fix_date_time_columns(
+        all_rows[SHEET_NAME],
+        header_idx=1,
+        date_idx=[COLS["인입일자"], COLS["예약일"]],
+        time_idx=[COLS["예약시간"]],
+    )
+    # 체험단: 헤더 위치가 시트마다 다름(find_header_row로 찾음), 컬럼명 기준
+    for name in EXPERIENCE_SHEETS:
+        all_rows[name] = fix_named_date_time_columns(
+            all_rows[name], "체험단국적", date_names=["예약 날짜"], time_names=["예약 시간"]
+        )
+    # 바이럴 포스팅: 마찬가지로 헤더 위치가 시트마다 다름
+    for name in VIRAL_SHEETS:
+        all_rows[name] = fix_named_date_time_columns(
+            all_rows[name], "순번", date_names=["업로드 날짜"]
+        )
+
     return all_rows
 
 

@@ -384,19 +384,22 @@ def build_cs_bookings(rows):
     n_total = 0
     n_used = 0
 
+    def get(r, idx):
+        return r[idx] if idx < len(r) else None
+
     for r in rows[2:]:  # 0: 타이틀행, 1: 헤더행
         n_total += 1
-        inquiry_date = r[COLS["인입일자"]]
+        inquiry_date = get(r, COLS["인입일자"])
         if not isinstance(inquiry_date, datetime.datetime):
             continue
         if inquiry_date < MIN_VALID_DATE:
             continue  # 이상치(예: 2020년 데이터 오입력) 제외
 
-        channel = clean_str(r[COLS["인입경로"]])
-        visit_type = clean_str(r[COLS["초재진"]])
-        status = clean_str(r[COLS["상담유형"]])
-        staff = clean_str(r[COLS["담당자"]])
-        procedure = clean_str(r[COLS["문의시술명"]])
+        channel = clean_str(get(r, COLS["인입경로"]))
+        visit_type = clean_str(get(r, COLS["초재진"]))
+        status = clean_str(get(r, COLS["상담유형"]))
+        staff = clean_str(get(r, COLS["담당자"]))
+        procedure = clean_str(get(r, COLS["문의시술명"]))
 
         n_used += 1
         date_iso = inquiry_date.date().isoformat()
@@ -411,8 +414,8 @@ def build_cs_bookings(rows):
         if procedure:
             procedure_counter[(month_key, procedure)] += 1
 
-        booking_date = r[COLS["예약일"]]
-        booking_time = r[COLS["예약시간"]]
+        booking_date = get(r, COLS["예약일"])
+        booking_time = get(r, COLS["예약시간"])
         if isinstance(booking_date, datetime.datetime) and isinstance(
             booking_time, datetime.time
         ):
