@@ -27,6 +27,15 @@ SPREADSHEET_ID = "1yEWyVVPW5cYQkjJ-EAlx37veDfZFLiCQG3nILkcgmH8"
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 KEY_PATH = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
 
+# 로컬 xlsx 스냅샷과 라이브 시트의 탭 이름이 다른 경우만 매핑 (라이브 시트 메타데이터로 확인됨,
+# 2026-08-30). 매핑에 없는 이름은 그대로 사용.
+LIVE_SHEET_NAME = {
+    "중국 인풀루언서체험단": "중국 인풀루언서/체험단",
+    "대만 인풀루언서체험단": "대만 인풀루언서/체험단",
+    "일본 인풀루언서체험단": "일본 인풀루언서/체험단",
+    "영미 인풀루언서체험단": "영미 인풀루언서/체험단",
+}
+
 
 def fetch_rows_by_sheet():
     creds = service_account.Credentials.from_service_account_file(KEY_PATH, scopes=SCOPES)
@@ -34,13 +43,14 @@ def fetch_rows_by_sheet():
     values_api = service.spreadsheets().values()
 
     rows_by_sheet = {}
-    for sheet_name in INFLUENCER_SHEETS + [MEGA_ROI_SHEET]:
+    for local_name in INFLUENCER_SHEETS + [MEGA_ROI_SHEET]:
+        live_name = LIVE_SHEET_NAME.get(local_name, local_name)
         result = values_api.get(
             spreadsheetId=SPREADSHEET_ID,
-            range=f"'{sheet_name}'!A:AZ",
+            range=f"'{live_name}'!A:AZ",
             valueRenderOption="UNFORMATTED_VALUE",
         ).execute()
-        rows_by_sheet[sheet_name] = result.get("values", [])
+        rows_by_sheet[local_name] = result.get("values", [])
     return rows_by_sheet
 
 
