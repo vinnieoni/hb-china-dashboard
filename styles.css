@@ -1,13 +1,15 @@
 :root {
   color-scheme: light;
-  --page: #f9f9f7;
-  --surface: #fcfcfb;
-  --text-primary: #0b0b0b;
-  --text-secondary: #52514e;
-  --text-muted: #898781;
-  --gridline: #e1e0d9;
-  --baseline: #c3c2b7;
-  --border: rgba(11, 11, 11, 0.1);
+  --page: #f3f5fa;
+  --surface: #ffffff;
+  --nav-surface: #fbfcfe;
+  --text-primary: #10131c;
+  --text-secondary: #4b5163;
+  --text-muted: #7d8494;
+  --gridline: #e3e6ee;
+  --baseline: #c4c9d6;
+  --border: rgba(16, 19, 34, 0.08);
+  --shadow: 0 1px 2px rgba(16, 19, 34, 0.04), 0 4px 16px rgba(16, 19, 34, 0.05);
   --success: #006300;
 
   --series-1: #2a78d6; /* 위챗 / 문의량 */
@@ -26,14 +28,16 @@
 @media (prefers-color-scheme: dark) {
   :root:where(:not([data-theme="light"])) {
     color-scheme: dark;
-    --page: #0d0d0d;
-    --surface: #1a1a19;
-    --text-primary: #ffffff;
-    --text-secondary: #c3c2b7;
-    --text-muted: #898781;
-    --gridline: #2c2c2a;
-    --baseline: #383835;
-    --border: rgba(255, 255, 255, 0.1);
+    --page: #0a0c12;
+    --surface: #14171f;
+    --nav-surface: #12141b;
+    --text-primary: #f4f5f8;
+    --text-secondary: #b8bfcc;
+    --text-muted: #7d8494;
+    --gridline: #262b36;
+    --baseline: #3a3f4d;
+    --border: rgba(184, 191, 204, 0.12);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
     --success: #0ca30c;
 
     --series-1: #3987e5;
@@ -52,14 +56,16 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --page: #0d0d0d;
-  --surface: #1a1a19;
-  --text-primary: #ffffff;
-  --text-secondary: #c3c2b7;
-  --text-muted: #898781;
-  --gridline: #2c2c2a;
-  --baseline: #383835;
-  --border: rgba(255, 255, 255, 0.1);
+  --page: #0a0c12;
+  --surface: #14171f;
+  --nav-surface: #12141b;
+  --text-primary: #f4f5f8;
+  --text-secondary: #b8bfcc;
+  --text-muted: #7d8494;
+  --gridline: #262b36;
+  --baseline: #3a3f4d;
+  --border: rgba(184, 191, 204, 0.12);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
   --success: #0ca30c;
 
   --series-1: #3987e5;
@@ -84,7 +90,33 @@ body {
   background: var(--page);
   color: var(--text-primary);
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 14.5px;
+}
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--nav-surface);
+  border-bottom: 1px solid var(--gridline);
+  box-shadow: var(--shadow);
+}
+
+.site-nav-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.site-nav-brand {
+  font-weight: 700;
   font-size: 14px;
+  white-space: nowrap;
+  padding: 14px 0;
+  color: var(--text-primary);
 }
 
 .app {
@@ -140,8 +172,9 @@ header.app-header p {
 .stat-tile {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 14px 16px;
+  box-shadow: var(--shadow);
 }
 
 .stat-tile .label {
@@ -159,18 +192,21 @@ header.app-header p {
 .tabs {
   display: flex;
   gap: 4px;
-  border-bottom: 1px solid var(--gridline);
-  margin-bottom: 20px;
 }
 
 .tab-btn {
   font: inherit;
   background: none;
   border: none;
-  padding: 10px 14px;
+  padding: 14px 14px;
   color: var(--text-secondary);
   cursor: pointer;
   border-bottom: 2px solid transparent;
+  transition: color 0.15s ease;
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
 }
 
 .tab-btn.active {
@@ -185,7 +221,7 @@ header.app-header p {
 
 .tab-panel.active {
   display: grid;
-  gap: 16px;
+  gap: 18px;
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -196,12 +232,14 @@ header.app-header p {
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 16px;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: var(--shadow);
 }
 
 .card h2 {
-  font-size: 14px;
+  font-size: 14.5px;
+  font-weight: 600;
   margin: 0 0 2px;
 }
 

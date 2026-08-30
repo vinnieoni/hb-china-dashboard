@@ -7,6 +7,18 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <nav class="site-nav">
+    <div class="site-nav-inner">
+      <span class="site-nav-brand">HB 대시보드</span>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="tab-booking">예약·전환</button>
+        <button class="tab-btn" data-tab="tab-staff">채널·담당자</button>
+        <button class="tab-btn" data-tab="tab-influencer">인플루언서 퍼널</button>
+        <button class="tab-btn" data-tab="tab-content">콘텐츠 성과</button>
+        <button class="tab-btn" data-tab="tab-megaroi">메가인플루언서 ROI</button>
+      </div>
+    </div>
+  </nav>
   <div class="app">
     <header class="app-header">
       <h1>중화권 CS 예약 대시보드</h1>
@@ -24,14 +36,6 @@
     </div>
 
     <div class="kpi-row" id="kpiRow"></div>
-
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="tab-booking">예약·전환</button>
-      <button class="tab-btn" data-tab="tab-staff">채널·담당자</button>
-      <button class="tab-btn" data-tab="tab-influencer">인플루언서 퍼널</button>
-      <button class="tab-btn" data-tab="tab-content">콘텐츠 성과</button>
-      <button class="tab-btn" data-tab="tab-megaroi">메가인플루언서 ROI</button>
-    </div>
 
     <section id="tab-booking" class="tab-panel active">
       <div class="card full" id="trendCard">
