@@ -75,7 +75,7 @@ def fix_date_time_columns(rows, header_idx, date_idx=(), time_idx=()):
         for p in time_idx:
             if p < len(r):
                 r[p] = serial_to_time(r[p])
-        fixed.append(r)
+        fixed.append(tuple(r))
     return fixed
 
 
@@ -129,7 +129,9 @@ def fetch_all_rows(values_api):
                 range=f"'{live_name}'!A:AZ",
                 valueRenderOption="UNFORMATTED_VALUE",
             ).execute()
-            all_rows[local_name] = result.get("values", [])
+            # openpyxl은 행을 tuple로 주고 기존 빌더들(특히 experience의 dict.fromkeys
+            # 중복제거)이 그걸 전제로 함 - Sheets API는 list를 주므로 여기서 맞춰준다.
+            all_rows[local_name] = [tuple(row) for row in result.get("values", [])]
 
     # CS: 타이틀행(0)+헤더행(1) 뒤부터 데이터, 날짜/시간 컬럼은 고정 인덱스(COLS)로 알려져 있음
     all_rows[SHEET_NAME] = fix_date_time_columns(
