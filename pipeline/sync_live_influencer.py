@@ -65,6 +65,18 @@ def sync():
     with open(OUTPUT_PATH, encoding="utf-8") as f:
         output = json.load(f)
 
+    unchanged = (
+        output.get("influencerSourceRowCount") == inf_total
+        and output.get("influencerUsedRowCount") == inf_used
+        and output.get("influencerFunnel") == influencer
+        and output.get("megaRoiSourceRowCount") == roi_total
+        and output.get("megaRoiUsedRowCount") == roi_used
+        and output.get("megaRoi") == mega_roi
+    )
+    if unchanged:
+        print("변경 없음 - summary.json을 다시 쓰지 않음 (generatedAt도 그대로 유지)")
+        return
+
     output["influencerSourceRowCount"] = inf_total
     output["influencerUsedRowCount"] = inf_used
     output["influencerFunnel"] = influencer
