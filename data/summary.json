@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-30T08:39:01",
+  "generatedAt": "2026-08-30T18:01:01",
   "sourceRowCount": 5016,
   "usedRowCount": 4137,
   "daily": [
@@ -14121,6 +14121,240 @@
       "weekday": "일",
       "hour": 15,
       "count": 1
+    }
+  ],
+  "viralPostingSourceRowCount": 559,
+  "viralPostingUsedRowCount": 539,
+  "viralPostingUploads": [
+    {
+      "month": "2026-01",
+      "platform": "스레드",
+      "count": 37,
+      "deletedCount": 0
+    },
+    {
+      "month": "2026-02",
+      "platform": "샤오홍슈",
+      "count": 43,
+      "deletedCount": 0
+    },
+    {
+      "month": "2026-03",
+      "platform": "샤오홍슈",
+      "count": 26,
+      "deletedCount": 1
+    },
+    {
+      "month": "2026-04",
+      "platform": "샤오홍슈",
+      "count": 44,
+      "deletedCount": 0
+    },
+    {
+      "month": "2026-05",
+      "platform": "샤오홍슈",
+      "count": 24,
+      "deletedCount": 0
+    },
+    {
+      "month": "2026-05",
+      "platform": "스레드",
+      "count": 30,
+      "deletedCount": 0
+    },
+    {
+      "month": "2026-06",
+      "platform": "샤오홍슈",
+      "count": 75,
+      "deletedCount": 0
+    },
+    {
+      "month": "2026-06",
+      "platform": "스레드",
+      "count": 34,
+      "deletedCount": 0
+    },
+    {
+      "month": "2026-07",
+      "platform": "샤오홍슈",
+      "count": 66,
+      "deletedCount": 0
+    },
+    {
+      "month": "2026-07",
+      "platform": "스레드",
+      "count": 39,
+      "deletedCount": 0
+    },
+    {
+      "month": "2026-08",
+      "platform": "샤오홍슈",
+      "count": 73,
+      "deletedCount": 0
+    },
+    {
+      "month": "2026-08",
+      "platform": "스레드",
+      "count": 48,
+      "deletedCount": 0
+    }
+  ],
+  "viralPostingEngagement": [
+    {
+      "month": "2026-01",
+      "platform": "스레드",
+      "likesSum": 78.0,
+      "likesCount": 37,
+      "commentsSum": 2.0,
+      "commentsCount": 37,
+      "viewsSum": 0.0,
+      "viewsCount": 0,
+      "pairedLikesSum": 0.0,
+      "pairedViewsSum": 0.0,
+      "pairedCount": 0
+    },
+    {
+      "month": "2026-02",
+      "platform": "샤오홍슈",
+      "likesSum": 26.0,
+      "likesCount": 4,
+      "commentsSum": 20.0,
+      "commentsCount": 4,
+      "viewsSum": 0.0,
+      "viewsCount": 0,
+      "pairedLikesSum": 0.0,
+      "pairedViewsSum": 0.0,
+      "pairedCount": 0
+    },
+    {
+      "month": "2026-03",
+      "platform": "샤오홍슈",
+      "likesSum": 224.0,
+      "likesCount": 2,
+      "commentsSum": 47.0,
+      "commentsCount": 3,
+      "viewsSum": 0.0,
+      "viewsCount": 0,
+      "pairedLikesSum": 0.0,
+      "pairedViewsSum": 0.0,
+      "pairedCount": 0
+    },
+    {
+      "month": "2026-04",
+      "platform": "샤오홍슈",
+      "likesSum": 0.0,
+      "likesCount": 0,
+      "commentsSum": 0.0,
+      "commentsCount": 0,
+      "viewsSum": 0.0,
+      "viewsCount": 0,
+      "pairedLikesSum": 0.0,
+      "pairedViewsSum": 0.0,
+      "pairedCount": 0
+    },
+    {
+      "month": "2026-05",
+      "platform": "샤오홍슈",
+      "likesSum": 0.0,
+      "likesCount": 0,
+      "commentsSum": 0.0,
+      "commentsCount": 0,
+      "viewsSum": 0.0,
+      "viewsCount": 0,
+      "pairedLikesSum": 0.0,
+      "pairedViewsSum": 0.0,
+      "pairedCount": 0
+    },
+    {
+      "month": "2026-05",
+      "platform": "스레드",
+      "likesSum": 5707.0,
+      "likesCount": 30,
+      "commentsSum": 54.0,
+      "commentsCount": 30,
+      "viewsSum": 14031.0,
+      "viewsCount": 29,
+      "pairedLikesSum": 28.0,
+      "pairedViewsSum": 14031.0,
+      "pairedCount": 29
+    },
+    {
+      "month": "2026-06",
+      "platform": "샤오홍슈",
+      "likesSum": 169.0,
+      "likesCount": 2,
+      "commentsSum": 66.0,
+      "commentsCount": 4,
+      "viewsSum": 0.0,
+      "viewsCount": 0,
+      "pairedLikesSum": 0.0,
+      "pairedViewsSum": 0.0,
+      "pairedCount": 0
+    },
+    {
+      "month": "2026-06",
+      "platform": "스레드",
+      "likesSum": 3271.0,
+      "likesCount": 34,
+      "commentsSum": 141.0,
+      "commentsCount": 34,
+      "viewsSum": 21770.0,
+      "viewsCount": 32,
+      "pairedLikesSum": 108.0,
+      "pairedViewsSum": 21770.0,
+      "pairedCount": 32
+    },
+    {
+      "month": "2026-07",
+      "platform": "샤오홍슈",
+      "likesSum": 6.0,
+      "likesCount": 1,
+      "commentsSum": 0.0,
+      "commentsCount": 0,
+      "viewsSum": 0.0,
+      "viewsCount": 0,
+      "pairedLikesSum": 0.0,
+      "pairedViewsSum": 0.0,
+      "pairedCount": 0
+    },
+    {
+      "month": "2026-07",
+      "platform": "스레드",
+      "likesSum": 77.0,
+      "likesCount": 39,
+      "commentsSum": 82.0,
+      "commentsCount": 38,
+      "viewsSum": 28089.0,
+      "viewsCount": 39,
+      "pairedLikesSum": 77.0,
+      "pairedViewsSum": 28089.0,
+      "pairedCount": 39
+    },
+    {
+      "month": "2026-08",
+      "platform": "샤오홍슈",
+      "likesSum": 111.0,
+      "likesCount": 6,
+      "commentsSum": 22.0,
+      "commentsCount": 4,
+      "viewsSum": 0.0,
+      "viewsCount": 0,
+      "pairedLikesSum": 0.0,
+      "pairedViewsSum": 0.0,
+      "pairedCount": 0
+    },
+    {
+      "month": "2026-08",
+      "platform": "스레드",
+      "likesSum": 835.0,
+      "likesCount": 35,
+      "commentsSum": 125.0,
+      "commentsCount": 35,
+      "viewsSum": 23656.0,
+      "viewsCount": 34,
+      "pairedLikesSum": 151.0,
+      "pairedViewsSum": 23656.0,
+      "pairedCount": 34
     }
   ]
 }

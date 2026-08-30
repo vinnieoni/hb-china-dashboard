@@ -17,6 +17,7 @@
         <button class="tab-btn" data-tab="tab-content">콘텐츠 성과</button>
         <button class="tab-btn" data-tab="tab-megaroi">메가인플루언서 ROI</button>
         <button class="tab-btn" data-tab="tab-experience">체험단 예약</button>
+        <button class="tab-btn" data-tab="tab-viral">바이럴 포스팅</button>
       </div>
     </div>
   </nav>
@@ -183,6 +184,33 @@
         <h2>요일 × 시간대 예약 분포</h2>
         <p class="subtitle">예약일시 기준 히트맵</p>
         <div id="experienceSlotHeatmap"></div>
+      </div>
+    </section>
+
+    <section id="tab-viral" class="tab-panel">
+      <div class="card full">
+        <p class="subtitle">바이럴 포스팅 막계정 시트(샤오홍슈/스레드) 집계 — 포스팅 링크 등 개인 식별 정보는 포함되지 않습니다.</p>
+      </div>
+      <div class="kpi-row" id="viralKpiRow" style="grid-column:1 / -1"></div>
+      <div class="card full" id="viralTrendCard">
+        <h2>월별 포스팅 추이</h2>
+        <p class="subtitle">플랫폼별 업로드 건수</p>
+        <div id="viralTrendChart"></div>
+      </div>
+      <div class="card" id="viralPlatformCard">
+        <h2>플랫폼별 포스팅량</h2>
+        <p class="subtitle">전체 기간 합계</p>
+        <div id="viralPlatformChart"></div>
+      </div>
+      <div class="card" id="viralDeletedCard">
+        <h2>플랫폼별 삭제된 게시물 수</h2>
+        <p class="subtitle">비고란에 '삭제'로 명시적으로 표시된 건만</p>
+        <div id="viralDeletedChart"></div>
+      </div>
+      <div class="card full" id="viralEngagementCard">
+        <h2>참여 지표 (평균)</h2>
+        <p class="subtitle" id="viralEngagementSubtitle">참여(좋아요/댓글/조회수)가 기록된 게시물만 대상 — 전수 조사가 아닌 참고용 수치입니다.</p>
+        <div class="kpi-row" id="viralEngagementRow"></div>
       </div>
     </section>
 

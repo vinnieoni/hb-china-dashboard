@@ -341,6 +341,9 @@ const EXPERIENCE_STATUS_COLOR = {
   취소: "var(--series-8)", 미표시: "var(--series-muted)",
 };
 
+const VIRAL_PLATFORM_ORDER = ["샤오홍슈", "스레드"];
+const VIRAL_PLATFORM_COLOR = { 샤오홍슈: "var(--series-1)", 스레드: "var(--series-2)" };
+
 function isoWeekStart(dateStr) {
   const d = new Date(dateStr + "T00:00:00");
   const day = (d.getDay() + 6) % 7; // 0=Mon
@@ -419,6 +422,68 @@ async function main() {
     renderContentPerformance();
     renderMegaRoi();
     renderExperience();
+    renderViralPosting();
+  }
+
+  function renderViralPosting() {
+    const uploads = data.viralPostingUploads;
+    const engagement = data.viralPostingEngagement;
+
+    const xhsEng = engagement.filter((r) => r.platform === "샤오홍슈");
+    const threadsEng = engagement.filter((r) => r.platform === "스레드");
+    const xhsLikesSum = sum(xhsEng, (r) => r.likesSum);
+    const xhsLikesCount = sum(xhsEng, (r) => r.likesCount);
+    const xhsCommentsSum = sum(xhsEng, (r) => r.commentsSum);
+    const xhsCommentsCount = sum(xhsEng, (r) => r.commentsCount);
+    const threadsLikesSum = sum(threadsEng, (r) => r.likesSum);
+    const threadsLikesCount = sum(threadsEng, (r) => r.likesCount);
+    const threadsCommentsSum = sum(threadsEng, (r) => r.commentsSum);
+    const threadsCommentsCount = sum(threadsEng, (r) => r.commentsCount);
+    const threadsViewsSum = sum(threadsEng, (r) => r.viewsSum);
+    const threadsViewsCount = sum(threadsEng, (r) => r.viewsCount);
+
+    const kpiRow = document.getElementById("viralKpiRow");
+    clear(kpiRow);
+    const total = sum(uploads, (r) => r.count);
+    const deleted = sum(uploads, (r) => r.deletedCount);
+    statTile(kpiRow, "총 포스팅 건수", fmtInt(total));
+    statTile(kpiRow, "삭제된 게시물 수", fmtInt(deleted));
+    statTile(kpiRow, "스레드 평균 좋아요 (참여 기록된 것 중)", threadsLikesCount ? (threadsLikesSum / threadsLikesCount).toFixed(1) : "-");
+    statTile(kpiRow, "스레드 평균 조회수 (참여 기록된 것 중)", threadsViewsCount ? fmtInt(Math.round(threadsViewsSum / threadsViewsCount)) : "-");
+
+    const months = [...new Set(uploads.map((r) => r.month))].sort();
+    const byMonthPlatform = groupSum(uploads, (r) => `${r.month}|${r.platform}`);
+    const series = VIRAL_PLATFORM_ORDER.map((p) => ({
+      name: p,
+      color: VIRAL_PLATFORM_COLOR[p],
+      points: months.map((m) => byMonthPlatform.get(`${m}|${p}`) || 0),
+    }));
+    lineChart(document.getElementById("viralTrendChart"), { xLabels: months, series, width: 1080, height: 220 });
+
+    const byPlatform = groupSum(uploads, (r) => r.platform);
+    const platformItems = VIRAL_PLATFORM_ORDER.filter((p) => byPlatform.has(p)).map((p) => ({
+      label: p, value: byPlatform.get(p) || 0, color: VIRAL_PLATFORM_COLOR[p], tooltipLabel: "포스팅 건수",
+    }));
+    hBarChart(document.getElementById("viralPlatformChart"), { items: platformItems, width: 500 });
+
+    const deletedByPlatform = groupSum(uploads, (r) => r.platform, (r) => r.deletedCount);
+    const deletedItems = VIRAL_PLATFORM_ORDER.filter((p) => byPlatform.has(p)).map((p) => ({
+      label: p, value: deletedByPlatform.get(p) || 0, color: VIRAL_PLATFORM_COLOR[p], tooltipLabel: "삭제 건수",
+    }));
+    hBarChart(document.getElementById("viralDeletedChart"), { items: deletedItems, width: 500 });
+
+    // 참고용 부분 표본: 샤오홍슈는 좋아요·댓글 기록 자체가 드묾(전체 대비 소수) — 스레드는 대부분 기록됨
+    document.getElementById("viralEngagementSubtitle").textContent =
+      `샤오홍슈는 좋아요·댓글 기록이 드뭅니다(표본 ${fmtInt(xhsLikesCount)}/${fmtInt(xhsCommentsCount)}건, 전체 ${fmtInt(byPlatform.get("샤오홍슈") || 0)}건 중) — 참고용 수치입니다. ` +
+      `스레드는 좋아요·댓글·조회수 대부분이 기록되어 있습니다(표본 ${fmtInt(threadsLikesCount)}/${fmtInt(threadsCommentsCount)}/${fmtInt(threadsViewsCount)}건, 전체 ${fmtInt(byPlatform.get("스레드") || 0)}건 중).`;
+
+    const engRow = document.getElementById("viralEngagementRow");
+    clear(engRow);
+    statTile(engRow, `샤오홍슈 평균 좋아요 (표본 ${fmtInt(xhsLikesCount)}건)`, xhsLikesCount ? (xhsLikesSum / xhsLikesCount).toFixed(1) : "-");
+    statTile(engRow, `샤오홍슈 평균 댓글 (표본 ${fmtInt(xhsCommentsCount)}건)`, xhsCommentsCount ? (xhsCommentsSum / xhsCommentsCount).toFixed(1) : "-");
+    statTile(engRow, `스레드 평균 좋아요 (표본 ${fmtInt(threadsLikesCount)}건)`, threadsLikesCount ? (threadsLikesSum / threadsLikesCount).toFixed(1) : "-");
+    statTile(engRow, `스레드 평균 댓글 (표본 ${fmtInt(threadsCommentsCount)}건)`, threadsCommentsCount ? (threadsCommentsSum / threadsCommentsCount).toFixed(1) : "-");
+    statTile(engRow, `스레드 평균 조회수 (표본 ${fmtInt(threadsViewsCount)}건)`, threadsViewsCount ? fmtInt(Math.round(threadsViewsSum / threadsViewsCount)) : "-");
   }
 
   function renderExperience() {
