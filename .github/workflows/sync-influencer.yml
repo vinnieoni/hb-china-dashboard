@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install google-api-python-client google-auth
+      - run: pip install google-api-python-client google-auth openpyxl
 
       - name: Fetch live sheet data and rebuild aggregates
         env:
