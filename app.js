@@ -335,6 +335,12 @@ const FOLLOWER_TIER_ORDER = ["1만 미만", "1만~5만", "5만~10만", "10만 �
 const UPLOADED_STAGE = "업로드완료";
 const DEAD_STAGES = new Set(["답변없음", "협찬거절"]);
 
+const EXPERIENCE_STATUS_ORDER = ["방문완료", "예약완료", "예약요청", "취소", "미표시"];
+const EXPERIENCE_STATUS_COLOR = {
+  방문완료: "var(--series-1)", 예약완료: "var(--series-3)", 예약요청: "var(--series-4)",
+  취소: "var(--series-8)", 미표시: "var(--series-muted)",
+};
+
 function isoWeekStart(dateStr) {
   const d = new Date(dateStr + "T00:00:00");
   const day = (d.getDay() + 6) % 7; // 0=Mon
@@ -412,6 +418,50 @@ async function main() {
     renderInfluencer(influencerCountrySel.value);
     renderContentPerformance();
     renderMegaRoi();
+    renderExperience();
+  }
+
+  function renderExperience() {
+    const bookings = data.experienceBookings;
+
+    const kpiRow = document.getElementById("experienceKpiRow");
+    clear(kpiRow);
+    const total = sum(bookings, (r) => r.count);
+    const countries = new Set(bookings.map((r) => r.country)).size;
+    const byStatus = groupSum(bookings, (r) => r.status);
+    statTile(kpiRow, "총 예약 건수", fmtInt(total));
+    statTile(kpiRow, "국가 수", fmtInt(countries));
+    statTile(kpiRow, "방문완료 표시 건수", fmtInt(byStatus.get("방문완료") || 0));
+    statTile(kpiRow, "취소 표시 건수", fmtInt(byStatus.get("취소") || 0));
+
+    const months = [...new Set(bookings.map((r) => r.month))].sort();
+    const byMonth = groupSum(bookings, (r) => r.month);
+    lineChart(document.getElementById("experienceTrendChart"), {
+      xLabels: months,
+      series: [{ name: "예약 건수", color: "var(--series-1)", points: months.map((m) => byMonth.get(m) || 0) }],
+      width: 1080,
+      height: 200,
+    });
+
+    const byCountry = groupSum(bookings, (r) => r.country);
+    const sortedCountries = [...byCountry.entries()].sort((a, b) => b[1] - a[1]);
+    const top = sortedCountries.slice(0, 8);
+    const otherTotal = sortedCountries.slice(8).reduce((s, [, v]) => s + v, 0);
+    const countryItems = top.map(([label, value]) => ({ label, value, color: "var(--series-1)" }));
+    if (otherTotal > 0) countryItems.push({ label: "그 외", value: otherTotal, color: "var(--series-muted)" });
+    hBarChart(document.getElementById("experienceCountryChart"), { items: countryItems, width: 500 });
+
+    const statusItems = EXPERIENCE_STATUS_ORDER.filter((s) => byStatus.has(s)).map((s) => ({
+      label: s, value: byStatus.get(s) || 0, color: EXPERIENCE_STATUS_COLOR[s],
+    }));
+    hBarChart(document.getElementById("experienceStatusChart"), { items: statusItems, width: 500 });
+
+    const hours = [...new Set(data.experienceSlots.map((r) => r.hour))].sort((a, b) => a - b);
+    const valueAt = (weekday, hour) => {
+      const row = data.experienceSlots.find((r) => r.weekday === weekday && r.hour === hour);
+      return row ? row.count : 0;
+    };
+    heatmapGrid(document.getElementById("experienceSlotHeatmap"), { rows: WEEKDAYS, cols: hours, valueAt, width: 1080 });
   }
 
   const CONTENT_COMPLETED_STATUSES = new Set(["완료", "업로드 완료"]);

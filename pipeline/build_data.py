@@ -34,6 +34,17 @@ CONTENT_PATH = os.path.expanduser(
     "~/Desktop/Dashboard_data/HB_ 콘텐츠 업로드 관리.xlsx"
 )
 CONTENT_SHEET = "전체통합"
+
+EXPERIENCE_PATH = os.path.expanduser(
+    "~/Desktop/Dashboard_data/힐링브리즈 체험단 정리.xlsx"
+)
+EXPERIENCE_SHEETS = ["중국 체험단 예약", "대만체험단 예약", "일본 체험단 예약", "영미 체험단 예약"]
+EXPERIENCE_STATUS_MAP = {
+    "방문완": "방문완료", "방문완료": "방문완료",
+    "예약완": "예약완료", "예약완료": "예약완료",
+    "취소": "취소",
+    "예약요청": "예약요청",
+}
 STAGE_MAP = {
     "답변없음": "답변없음",
     "협찬거절": "협찬거절",
@@ -153,15 +164,54 @@ def parse_upload_date(v):
         return None
 
 
-def build_influencer_funnel():
-    wb = openpyxl.load_workbook(INFLUENCER_PATH, read_only=True, data_only=True)
+def parse_experience_date(v):
+    """'2025.11.13(목)' 같은 요일 괄호 포함 문자열이나 datetime 값을 date로 변환."""
+    if isinstance(v, datetime.datetime):
+        return v.date()
+    if v is None:
+        return None
+    s = re.sub(r"\(.*?\)", "", str(v)).strip()
+    if not s:
+        return None
+    parts = [p.strip() for p in s.split(".") if p.strip()]
+    if len(parts) != 3:
+        return None
+    y, m, d = parts
+    if len(y) == 2:
+        y = "20" + y
+    try:
+        return datetime.date(int(y), int(m), int(d))
+    except ValueError:
+        return None
+
+
+def normalize_experience_status(v):
+    """'전화번호'/'비고' 칸에 섞여 들어간 상태 마킹만 골라내고, 그 외 자유 텍스트(시술명·메모 등)는 버린다."""
+    key = re.sub(r"\s+", "", str(v).strip()) if v is not None else ""
+    return EXPERIENCE_STATUS_MAP.get(key)
+
+
+def find_header_row(rows, marker):
+    for i, r in enumerate(rows[:5]):
+        if marker in r:
+            return i
+    return 0
+
+
+def load_local_workbook_rows(path, sheet_names):
+    """로컬 xlsx에서 지정된 시트들을 읽어 {시트명: 행리스트} 형태로 반환."""
+    wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
+    return {name: list(wb[name].iter_rows(values_only=True)) for name in sheet_names}
+
+
+def build_influencer_funnel(rows_by_sheet):
+    """rows_by_sheet: {시트명: 행리스트}. 로컬 xlsx든 구글 시트 API든 이 형태로만 넘기면 됨."""
     counter = collections.Counter()
     n_total = 0
     n_used = 0
 
     for sheet_name in INFLUENCER_SHEETS:
-        ws = wb[sheet_name]
-        rows = list(ws.iter_rows(values_only=True))
+        rows = rows_by_sheet[sheet_name]
         header = rows[0]
         col_idx = {}
         for i, v in enumerate(header):
@@ -192,13 +242,12 @@ def build_influencer_funnel():
     return influencer, n_total, n_used
 
 
-def build_mega_roi():
+def build_mega_roi(rows_by_sheet):
     """마케팅팀 인플루언서 시트의 '메가인플루언서 협업ROI' 탭을 집계.
     개인 식별 컬럼(차트번호/아이디/계정 링크/콘텐츠 업로드 링크)은 애초에 읽지 않는다.
+    rows_by_sheet: {시트명: 행리스트}. 로컬 xlsx든 구글 시트 API든 이 형태로만 넘기면 됨.
     """
-    wb = openpyxl.load_workbook(INFLUENCER_PATH, read_only=True, data_only=True)
-    ws = wb[MEGA_ROI_SHEET]
-    rows = list(ws.iter_rows(values_only=True))
+    rows = rows_by_sheet[MEGA_ROI_SHEET]
     header = rows[1]  # 0: 타이틀행('방문전'), 1: 헤더행
     col_idx = {}
     for i, v in enumerate(header):
@@ -258,6 +307,71 @@ def build_mega_roi():
         for (staff, platform, nationality, tier), b in sorted(acc.items())
     ]
     return mega_roi, n_total, n_used
+
+
+def build_experience_bookings(rows_by_sheet):
+    """체험단 예약 시트(중국/대만/일본/영미)를 월/국가/상태 단위로 집계.
+    성함/생년월일/전화번호/왓츠앱·카톡/차트번호/비고 원문은 절대 읽어 내보내지 않는다.
+    '전화번호'·'비고' 칸에 상태 문구(방문 완/예약 완/취소 등)가 섞여 들어간 경우만
+    normalize_experience_status()로 걸러 코드화하고, 그 외 자유 텍스트(시술명 메모 등)는 버린다.
+    중국/대만 시트는 소스에 중복 행이 섞여 있어(대만 탭에 중국 데이터가 일부 복사돼 들어감)
+    두 시트를 합쳐 완전-일치 행 기준으로 중복 제거한 뒤, 실제 '체험단국적' 값으로 재배정한다.
+    """
+    combined_cn_tw = list(dict.fromkeys(
+        rows_by_sheet["중국 체험단 예약"] + rows_by_sheet["대만체험단 예약"]
+    ))
+    sheet_row_groups = [combined_cn_tw, rows_by_sheet["일본 체험단 예약"], rows_by_sheet["영미 체험단 예약"]]
+
+    month_counter = collections.Counter()  # (month, country, status)
+    slot_counter = collections.Counter()  # (weekday, hour)
+    n_total = 0
+    n_used = 0
+
+    for rows in sheet_row_groups:
+        header_idx = find_header_row(rows, "체험단국적")
+        header = rows[header_idx]
+        col_idx = {}
+        for i, v in enumerate(header):
+            if v and v not in col_idx:
+                col_idx[str(v).strip()] = i
+
+        def get(r, name, col_idx=col_idx):
+            idx = col_idx.get(name)
+            return r[idx] if idx is not None and idx < len(r) else None
+
+        for r in rows[header_idx + 1:]:
+            if not any(v is not None for v in r):
+                continue
+            n_total += 1
+            country = clean_str(get(r, "체험단국적"))
+            booking_date = parse_experience_date(get(r, "예약 날짜"))
+            if country is None or booking_date is None:
+                continue
+            n_used += 1
+
+            status = (
+                normalize_experience_status(get(r, "전화번호"))
+                or normalize_experience_status(get(r, "비고"))
+                or normalize_experience_status(get(r, "왓으앱/카톡"))
+                or "미표시"
+            )
+            month_key = booking_date.strftime("%Y-%m")
+            month_counter[(month_key, country, status)] += 1
+
+            booking_time = get(r, "예약 시간")
+            if isinstance(booking_time, datetime.time):
+                weekday = WEEKDAY_KO[booking_date.weekday()]
+                slot_counter[(weekday, booking_time.hour)] += 1
+
+    bookings = [
+        {"month": m, "country": c, "status": s, "count": cnt}
+        for (m, c, s), cnt in sorted(month_counter.items())
+    ]
+    slots = [
+        {"weekday": w, "hour": h, "count": c}
+        for (w, h), c in sorted(slot_counter.items(), key=lambda kv: (WEEKDAY_KO.index(kv[0][0]), kv[0][1]))
+    ]
+    return bookings, slots, n_total, n_used
 
 
 def build_content_performance():
@@ -408,9 +522,17 @@ def build():
         for (w, h), c in sorted(slot_counter.items(), key=lambda kv: (WEEKDAY_KO.index(kv[0][0]), kv[0][1]))
     ]
 
-    influencer, inf_total, inf_used = build_influencer_funnel()
-    mega_roi, roi_total, roi_used = build_mega_roi()
+    influencer_rows_by_sheet = load_local_workbook_rows(
+        INFLUENCER_PATH, INFLUENCER_SHEETS + [MEGA_ROI_SHEET]
+    )
+    influencer, inf_total, inf_used = build_influencer_funnel(influencer_rows_by_sheet)
+    mega_roi, roi_total, roi_used = build_mega_roi(influencer_rows_by_sheet)
     content_uploads, content_engagement, content_total, content_used = build_content_performance()
+
+    experience_rows_by_sheet = load_local_workbook_rows(EXPERIENCE_PATH, EXPERIENCE_SHEETS)
+    experience_bookings, experience_slots, exp_total, exp_used = build_experience_bookings(
+        experience_rows_by_sheet
+    )
 
     output = {
         "generatedAt": datetime.datetime.now().isoformat(timespec="seconds"),
@@ -430,15 +552,19 @@ def build():
         "contentUsedRowCount": content_used,
         "contentUploads": content_uploads,
         "contentEngagement": content_engagement,
+        "experienceSourceRowCount": exp_total,
+        "experienceUsedRowCount": exp_used,
+        "experienceBookings": experience_bookings,
+        "experienceSlots": experience_slots,
     }
 
     # 안전장치: 출력에 PII 흔적이 없는지 확인 (이름/전화번호/차트번호/소셜 아이디/링크 패턴)
     blob = json.dumps(output, ensure_ascii=False)
     forbidden_keys = [
-        "이름", "차트번호", "전화번호", "생년월일", "위챗 ID",
+        "이름", "성함", "차트번호", "전화번호", "생년월일", "위챗 ID",
         "아이디", "인적사항", "비고", "콘텐츠 링크", "계정 링크",
         "콘텐츠 업로드 링크", "Links", "xhslink", "instagram.com",
-        "tiktok.com", "xiaohongshu.com",
+        "tiktok.com", "xiaohongshu.com", "왓으앱", "카톡",
     ]
     for k in forbidden_keys:
         assert k not in blob, f"PII 관련 키가 출력에 포함됨: {k}"
@@ -456,6 +582,8 @@ def build():
           f"megaRoi 집계행: {len(mega_roi)}")
     print(f"콘텐츠 업로드 원본 행수: {content_total}, 사용된 행수: {content_used}, "
           f"contentUploads 집계행: {len(content_uploads)}, contentEngagement 집계행: {len(content_engagement)}")
+    print(f"체험단 예약 원본 행수: {exp_total}, 사용된 행수: {exp_used}, "
+          f"experienceBookings 집계행: {len(experience_bookings)}, experienceSlots 집계행: {len(experience_slots)}")
     print(f"출력: {OUTPUT_PATH}")
 
     stage_totals = collections.Counter()
@@ -480,6 +608,14 @@ def build():
     print("콘텐츠 국가별 합계:", dict(country_totals))
     print("콘텐츠 플랫폼별 합계:", dict(platform_totals))
     print("콘텐츠 상태별 합계:", dict(status_totals2))
+
+    exp_country_totals = collections.Counter()
+    exp_status_totals = collections.Counter()
+    for row in experience_bookings:
+        exp_country_totals[row["country"]] += row["count"]
+        exp_status_totals[row["status"]] += row["count"]
+    print("체험단 국가별 합계:", dict(exp_country_totals))
+    print("체험단 상태별 합계:", dict(exp_status_totals))
 
 
 if __name__ == "__main__":

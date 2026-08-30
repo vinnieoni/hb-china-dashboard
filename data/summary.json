@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-29T21:17:28",
+  "generatedAt": "2026-08-30T17:05:08",
   "sourceRowCount": 5016,
   "usedRowCount": 4137,
   "daily": [
@@ -13675,6 +13675,452 @@
       "pairedLikesSum": 89.0,
       "pairedViewsSum": 6546.0,
       "pairedCount": 8
+    }
+  ],
+  "experienceSourceRowCount": 123,
+  "experienceUsedRowCount": 121,
+  "experienceBookings": [
+    {
+      "month": "2025-11",
+      "country": "대만",
+      "status": "방문완료",
+      "count": 1
+    },
+    {
+      "month": "2025-11",
+      "country": "대만",
+      "status": "취소",
+      "count": 1
+    },
+    {
+      "month": "2025-11",
+      "country": "중국",
+      "status": "방문완료",
+      "count": 9
+    },
+    {
+      "month": "2025-12",
+      "country": "대만",
+      "status": "예약완료",
+      "count": 1
+    },
+    {
+      "month": "2025-12",
+      "country": "대만",
+      "status": "예약요청",
+      "count": 1
+    },
+    {
+      "month": "2025-12",
+      "country": "대만",
+      "status": "취소",
+      "count": 1
+    },
+    {
+      "month": "2025-12",
+      "country": "중국",
+      "status": "방문완료",
+      "count": 1
+    },
+    {
+      "month": "2025-12",
+      "country": "중국",
+      "status": "예약완료",
+      "count": 1
+    },
+    {
+      "month": "2026-01",
+      "country": "뉴질랜드",
+      "status": "미표시",
+      "count": 1
+    },
+    {
+      "month": "2026-01",
+      "country": "대만",
+      "status": "미표시",
+      "count": 5
+    },
+    {
+      "month": "2026-01",
+      "country": "독일",
+      "status": "미표시",
+      "count": 1
+    },
+    {
+      "month": "2026-01",
+      "country": "말레이시아",
+      "status": "미표시",
+      "count": 1
+    },
+    {
+      "month": "2026-01",
+      "country": "멕시코",
+      "status": "미표시",
+      "count": 1
+    },
+    {
+      "month": "2026-01",
+      "country": "미국",
+      "status": "미표시",
+      "count": 5
+    },
+    {
+      "month": "2026-01",
+      "country": "베트남",
+      "status": "미표시",
+      "count": 1
+    },
+    {
+      "month": "2026-01",
+      "country": "스페인",
+      "status": "미표시",
+      "count": 1
+    },
+    {
+      "month": "2026-01",
+      "country": "아르헨티나",
+      "status": "미표시",
+      "count": 2
+    },
+    {
+      "month": "2026-01",
+      "country": "알바니아",
+      "status": "미표시",
+      "count": 1
+    },
+    {
+      "month": "2026-01",
+      "country": "인도",
+      "status": "미표시",
+      "count": 1
+    },
+    {
+      "month": "2026-01",
+      "country": "중국",
+      "status": "미표시",
+      "count": 8
+    },
+    {
+      "month": "2026-01",
+      "country": "캐나다",
+      "status": "미표시",
+      "count": 3
+    },
+    {
+      "month": "2026-01",
+      "country": "필리핀",
+      "status": "미표시",
+      "count": 1
+    },
+    {
+      "month": "2026-01",
+      "country": "한국",
+      "status": "미표시",
+      "count": 1
+    },
+    {
+      "month": "2026-02",
+      "country": "대만",
+      "status": "미표시",
+      "count": 6
+    },
+    {
+      "month": "2026-02",
+      "country": "미국",
+      "status": "미표시",
+      "count": 9
+    },
+    {
+      "month": "2026-02",
+      "country": "일본",
+      "status": "미표시",
+      "count": 1
+    },
+    {
+      "month": "2026-02",
+      "country": "중국",
+      "status": "미표시",
+      "count": 7
+    },
+    {
+      "month": "2026-02",
+      "country": "페루",
+      "status": "미표시",
+      "count": 1
+    },
+    {
+      "month": "2026-02",
+      "country": "한국",
+      "status": "미표시",
+      "count": 1
+    },
+    {
+      "month": "2026-03",
+      "country": "대만",
+      "status": "미표시",
+      "count": 3
+    },
+    {
+      "month": "2026-03",
+      "country": "스페인",
+      "status": "미표시",
+      "count": 1
+    },
+    {
+      "month": "2026-03",
+      "country": "인도네시아",
+      "status": "미표시",
+      "count": 1
+    },
+    {
+      "month": "2026-03",
+      "country": "일본",
+      "status": "미표시",
+      "count": 2
+    },
+    {
+      "month": "2026-03",
+      "country": "중국",
+      "status": "미표시",
+      "count": 17
+    },
+    {
+      "month": "2026-04",
+      "country": "대만",
+      "status": "미표시",
+      "count": 2
+    },
+    {
+      "month": "2026-04",
+      "country": "일본",
+      "status": "미표시",
+      "count": 4
+    },
+    {
+      "month": "2026-04",
+      "country": "중국",
+      "status": "미표시",
+      "count": 12
+    },
+    {
+      "month": "2026-04",
+      "country": "한국",
+      "status": "미표시",
+      "count": 1
+    },
+    {
+      "month": "2026-05",
+      "country": "일본",
+      "status": "미표시",
+      "count": 2
+    },
+    {
+      "month": "2026-05",
+      "country": "중국",
+      "status": "미표시",
+      "count": 2
+    }
+  ],
+  "experienceSlots": [
+    {
+      "weekday": "월",
+      "hour": 0,
+      "count": 1
+    },
+    {
+      "weekday": "월",
+      "hour": 10,
+      "count": 4
+    },
+    {
+      "weekday": "월",
+      "hour": 11,
+      "count": 5
+    },
+    {
+      "weekday": "월",
+      "hour": 12,
+      "count": 5
+    },
+    {
+      "weekday": "월",
+      "hour": 13,
+      "count": 1
+    },
+    {
+      "weekday": "월",
+      "hour": 14,
+      "count": 2
+    },
+    {
+      "weekday": "월",
+      "hour": 15,
+      "count": 2
+    },
+    {
+      "weekday": "월",
+      "hour": 16,
+      "count": 4
+    },
+    {
+      "weekday": "월",
+      "hour": 17,
+      "count": 2
+    },
+    {
+      "weekday": "화",
+      "hour": 11,
+      "count": 1
+    },
+    {
+      "weekday": "화",
+      "hour": 12,
+      "count": 3
+    },
+    {
+      "weekday": "화",
+      "hour": 13,
+      "count": 1
+    },
+    {
+      "weekday": "화",
+      "hour": 14,
+      "count": 7
+    },
+    {
+      "weekday": "화",
+      "hour": 15,
+      "count": 3
+    },
+    {
+      "weekday": "화",
+      "hour": 16,
+      "count": 8
+    },
+    {
+      "weekday": "화",
+      "hour": 17,
+      "count": 1
+    },
+    {
+      "weekday": "수",
+      "hour": 10,
+      "count": 2
+    },
+    {
+      "weekday": "수",
+      "hour": 11,
+      "count": 3
+    },
+    {
+      "weekday": "수",
+      "hour": 14,
+      "count": 7
+    },
+    {
+      "weekday": "수",
+      "hour": 15,
+      "count": 5
+    },
+    {
+      "weekday": "수",
+      "hour": 16,
+      "count": 5
+    },
+    {
+      "weekday": "수",
+      "hour": 17,
+      "count": 2
+    },
+    {
+      "weekday": "목",
+      "hour": 10,
+      "count": 2
+    },
+    {
+      "weekday": "목",
+      "hour": 11,
+      "count": 1
+    },
+    {
+      "weekday": "목",
+      "hour": 12,
+      "count": 1
+    },
+    {
+      "weekday": "목",
+      "hour": 13,
+      "count": 1
+    },
+    {
+      "weekday": "목",
+      "hour": 14,
+      "count": 5
+    },
+    {
+      "weekday": "목",
+      "hour": 15,
+      "count": 5
+    },
+    {
+      "weekday": "목",
+      "hour": 16,
+      "count": 4
+    },
+    {
+      "weekday": "목",
+      "hour": 17,
+      "count": 1
+    },
+    {
+      "weekday": "목",
+      "hour": 18,
+      "count": 1
+    },
+    {
+      "weekday": "금",
+      "hour": 11,
+      "count": 5
+    },
+    {
+      "weekday": "금",
+      "hour": 12,
+      "count": 2
+    },
+    {
+      "weekday": "금",
+      "hour": 13,
+      "count": 3
+    },
+    {
+      "weekday": "금",
+      "hour": 14,
+      "count": 4
+    },
+    {
+      "weekday": "금",
+      "hour": 15,
+      "count": 3
+    },
+    {
+      "weekday": "금",
+      "hour": 16,
+      "count": 2
+    },
+    {
+      "weekday": "금",
+      "hour": 17,
+      "count": 2
+    },
+    {
+      "weekday": "일",
+      "hour": 14,
+      "count": 1
+    },
+    {
+      "weekday": "일",
+      "hour": 15,
+      "count": 1
     }
   ]
 }

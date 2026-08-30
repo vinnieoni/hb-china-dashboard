@@ -16,6 +16,7 @@
         <button class="tab-btn" data-tab="tab-influencer">인플루언서 퍼널</button>
         <button class="tab-btn" data-tab="tab-content">콘텐츠 성과</button>
         <button class="tab-btn" data-tab="tab-megaroi">메가인플루언서 ROI</button>
+        <button class="tab-btn" data-tab="tab-experience">체험단 예약</button>
       </div>
     </div>
   </nav>
@@ -155,6 +156,33 @@
         <h2>팔로워 구간별 평균 CPV(예측)</h2>
         <p class="subtitle">CPV가 집계된 건 기준, 팔로워 수 오름차순</p>
         <div id="megaRoiTierChart"></div>
+      </div>
+    </section>
+
+    <section id="tab-experience" class="tab-panel">
+      <div class="card full">
+        <p class="subtitle">체험단 정리 시트(중국/대만/일본/영미) 집계 — 성함·생년월일·연락처 등 개인 식별 정보는 포함되지 않습니다. 방문/예약 상태는 비고란에 명시적으로 표시된 건만 집계되어 "미표시" 비중이 큽니다.</p>
+      </div>
+      <div class="kpi-row" id="experienceKpiRow" style="grid-column:1 / -1"></div>
+      <div class="card full" id="experienceTrendCard">
+        <h2>월별 예약 추이</h2>
+        <p class="subtitle">전체 국가 합계</p>
+        <div id="experienceTrendChart"></div>
+      </div>
+      <div class="card" id="experienceCountryCard">
+        <h2>국가별 예약 건수</h2>
+        <p class="subtitle">상위 8개국 + 그 외</p>
+        <div id="experienceCountryChart"></div>
+      </div>
+      <div class="card" id="experienceStatusCard">
+        <h2>방문·예약 상태 표시 분포</h2>
+        <p class="subtitle">비고란에 명시적으로 표시된 건만 (미표시 다수)</p>
+        <div id="experienceStatusChart"></div>
+      </div>
+      <div class="card full" id="experienceSlotCard">
+        <h2>요일 × 시간대 예약 분포</h2>
+        <p class="subtitle">예약일시 기준 히트맵</p>
+        <div id="experienceSlotHeatmap"></div>
       </div>
     </section>
 
