@@ -2,7 +2,7 @@
   color-scheme: light;
   --page: #f3f5fa;
   --surface: #ffffff;
-  --nav-surface: #fbfcfe;
+  --nav-surface: #ffffff;
   --text-primary: #10131c;
   --text-secondary: #4b5163;
   --text-muted: #7d8494;
@@ -30,7 +30,7 @@
     color-scheme: dark;
     --page: #0a0c12;
     --surface: #14171f;
-    --nav-surface: #12141b;
+    --nav-surface: #1c1f29;
     --text-primary: #f4f5f8;
     --text-secondary: #b8bfcc;
     --text-muted: #7d8494;
@@ -58,7 +58,7 @@
   color-scheme: dark;
   --page: #0a0c12;
   --surface: #14171f;
-  --nav-surface: #12141b;
+  --nav-surface: #1c1f29;
   --text-primary: #f4f5f8;
   --text-secondary: #b8bfcc;
   --text-muted: #7d8494;
@@ -109,14 +109,6 @@ body {
   display: flex;
   align-items: center;
   gap: 24px;
-}
-
-.site-nav-brand {
-  font-weight: 700;
-  font-size: 14px;
-  white-space: nowrap;
-  padding: 14px 0;
-  color: var(--text-primary);
 }
 
 .app {
