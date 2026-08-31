@@ -4666,17 +4666,24 @@
     },
     {
       "date": "2026-08-31",
-      "channel": "미상",
+      "channel": "위챗",
       "visitType": "미상",
-      "status": "미상",
-      "count": 15
+      "status": "예약완료",
+      "count": 4
+    },
+    {
+      "date": "2026-08-31",
+      "channel": "위챗",
+      "visitType": "재진",
+      "status": "예약완료",
+      "count": 4
     },
     {
       "date": "2026-08-31",
       "channel": "위챗",
       "visitType": "초진",
       "status": "예약완료",
-      "count": 15
+      "count": 22
     }
   ],
   "staffMonthly": [
@@ -4792,7 +4799,7 @@
       "month": "2026-08",
       "staff": "제니스",
       "booked": true,
-      "count": 350
+      "count": 365
     },
     {
       "month": "2026-08",
@@ -10546,7 +10553,7 @@
     {
       "month": "2026-08",
       "procedure": "SYLFIRM X",
-      "count": 2
+      "count": 3
     },
     {
       "month": "2026-08",
@@ -10610,8 +10617,13 @@
     },
     {
       "month": "2026-08",
-      "procedure": "onda 울쎼라",
+      "procedure": "onda 리쥬란",
       "count": 1
+    },
+    {
+      "month": "2026-08",
+      "procedure": "onda 울쎼라",
+      "count": 2
     },
     {
       "month": "2026-08",
@@ -10791,12 +10803,22 @@
     {
       "month": "2026-08",
       "procedure": "리프팅",
-      "count": 11
+      "count": 13
     },
     {
       "month": "2026-08",
       "procedure": "리프팅 필러",
       "count": 2
+    },
+    {
+      "month": "2026-08",
+      "procedure": "리프팅+눈가 주름+필러",
+      "count": 1
+    },
+    {
+      "month": "2026-08",
+      "procedure": "리프팅+눈가+모공+스킨부스터+윤곽",
+      "count": 1
     },
     {
       "month": "2026-08",
@@ -10846,7 +10868,7 @@
     {
       "month": "2026-08",
       "procedure": "물광",
-      "count": 7
+      "count": 8
     },
     {
       "month": "2026-08",
@@ -10931,7 +10953,7 @@
     {
       "month": "2026-08",
       "procedure": "상담 후 결정",
-      "count": 35
+      "count": 41
     },
     {
       "month": "2026-08",
@@ -11025,6 +11047,11 @@
     },
     {
       "month": "2026-08",
+      "procedure": "스킨부스터+울쎄라",
+      "count": 1
+    },
+    {
+      "month": "2026-08",
       "procedure": "스킨부스터+턱필러",
       "count": 1
     },
@@ -11061,7 +11088,7 @@
     {
       "month": "2026-08",
       "procedure": "써마지",
-      "count": 7
+      "count": 8
     },
     {
       "month": "2026-08",
@@ -11201,7 +11228,7 @@
     {
       "month": "2026-08",
       "procedure": "울쎄라",
-      "count": 21
+      "count": 22
     },
     {
       "month": "2026-08",
@@ -11538,7 +11565,7 @@
     {
       "weekday": "월",
       "hour": 10,
-      "count": 129
+      "count": 130
     },
     {
       "weekday": "월",
@@ -11553,7 +11580,7 @@
     {
       "weekday": "월",
       "hour": 13,
-      "count": 35
+      "count": 37
     },
     {
       "weekday": "월",
@@ -11563,7 +11590,7 @@
     {
       "weekday": "월",
       "hour": 15,
-      "count": 47
+      "count": 48
     },
     {
       "weekday": "월",
@@ -11608,7 +11635,7 @@
     {
       "weekday": "화",
       "hour": 13,
-      "count": 32
+      "count": 34
     },
     {
       "weekday": "화",
@@ -11643,7 +11670,7 @@
     {
       "weekday": "수",
       "hour": 12,
-      "count": 17
+      "count": 18
     },
     {
       "weekday": "수",
@@ -11663,7 +11690,7 @@
     {
       "weekday": "수",
       "hour": 16,
-      "count": 39
+      "count": 41
     },
     {
       "weekday": "수",
@@ -11688,7 +11715,7 @@
     {
       "weekday": "목",
       "hour": 13,
-      "count": 39
+      "count": 40
     },
     {
       "weekday": "목",
@@ -11703,7 +11730,7 @@
     {
       "weekday": "목",
       "hour": 16,
-      "count": 44
+      "count": 45
     },
     {
       "weekday": "목",
@@ -11718,7 +11745,7 @@
     {
       "weekday": "금",
       "hour": 10,
-      "count": 119
+      "count": 120
     },
     {
       "weekday": "금",
@@ -11778,7 +11805,7 @@
     {
       "weekday": "토",
       "hour": 10,
-      "count": 108
+      "count": 109
     },
     {
       "weekday": "토",
@@ -11788,7 +11815,7 @@
     {
       "weekday": "토",
       "hour": 12,
-      "count": 52
+      "count": 54
     },
     {
       "weekday": "토",
@@ -11823,7 +11850,7 @@
     {
       "weekday": "일",
       "hour": 10,
-      "count": 128
+      "count": 130
     },
     {
       "weekday": "일",
@@ -12639,12 +12666,12 @@
       "nationality": "미상",
       "followerTier": "10만 이상",
       "count": 9,
-      "estimateSum": 416.0,
-      "estimateCount": 8,
-      "cpvSum": 0.034755,
-      "cpvCount": 7,
-      "roiSum": 4.926896,
-      "roiCount": 5
+      "estimateSum": 496.0,
+      "estimateCount": 9,
+      "cpvSum": 0.039654,
+      "cpvCount": 8,
+      "roiSum": 5.523344,
+      "roiCount": 6
     },
     {
       "staff": "율리",
@@ -12755,13 +12782,13 @@
       "platform": "샤오홍슈",
       "nationality": "중국",
       "followerTier": "1만~5만",
-      "count": 12,
-      "estimateSum": 888.0,
-      "estimateCount": 12,
-      "cpvSum": 2.964002,
-      "cpvCount": 12,
-      "roiSum": 2.499011,
-      "roiCount": 5
+      "count": 13,
+      "estimateSum": 918.0,
+      "estimateCount": 13,
+      "cpvSum": 3.23673,
+      "cpvCount": 13,
+      "roiSum": 3.359401,
+      "roiCount": 6
     },
     {
       "staff": "율리",
@@ -12775,19 +12802,6 @@
       "cpvCount": 9,
       "roiSum": 1.50988,
       "roiCount": 2
-    },
-    {
-      "staff": "율리",
-      "platform": "샤오홍슈",
-      "nationality": "중국",
-      "followerTier": "미상",
-      "count": 1,
-      "estimateSum": 0.0,
-      "estimateCount": 0,
-      "cpvSum": 0.0,
-      "cpvCount": 0,
-      "roiSum": 0.0,
-      "roiCount": 0
     },
     {
       "staff": "율리",
@@ -14084,7 +14098,7 @@
     }
   ],
   "viralPostingSourceRowCount": 559,
-  "viralPostingUsedRowCount": 539,
+  "viralPostingUsedRowCount": 542,
   "viralPostingUploads": [
     {
       "month": "2026-01",
@@ -14155,7 +14169,7 @@
     {
       "month": "2026-08",
       "platform": "스레드",
-      "count": 48,
+      "count": 51,
       "deletedCount": 0
     }
   ],
@@ -14306,16 +14320,16 @@
     {
       "month": "2026-08",
       "platform": "스레드",
-      "likesSum": 835.0,
-      "likesCount": 35,
-      "commentsSum": 125.0,
-      "commentsCount": 35,
-      "viewsSum": 23656.0,
-      "viewsCount": 34,
-      "pairedLikesSum": 151.0,
-      "pairedViewsSum": 23656.0,
-      "pairedCount": 34
+      "likesSum": 908.0,
+      "likesCount": 45,
+      "commentsSum": 128.0,
+      "commentsCount": 45,
+      "viewsSum": 30678.0,
+      "viewsCount": 41,
+      "pairedLikesSum": 217.0,
+      "pairedViewsSum": 30678.0,
+      "pairedCount": 41
     }
   ],
-  "generatedAt": "2026-08-31T01:33:29"
+  "generatedAt": "2026-08-31T07:34:17"
 }
