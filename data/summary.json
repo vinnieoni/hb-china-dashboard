@@ -1,6 +1,6 @@
 {
-  "sourceRowCount": 4419,
-  "usedRowCount": 4148,
+  "sourceRowCount": 4449,
+  "usedRowCount": 4178,
   "daily": [
     {
       "date": "2026-05-06",
@@ -4663,6 +4663,20 @@
       "visitType": "초진",
       "status": "예약완료",
       "count": 18
+    },
+    {
+      "date": "2026-08-31",
+      "channel": "미상",
+      "visitType": "미상",
+      "status": "미상",
+      "count": 15
+    },
+    {
+      "date": "2026-08-31",
+      "channel": "위챗",
+      "visitType": "초진",
+      "status": "예약완료",
+      "count": 15
     }
   ],
   "staffMonthly": [
@@ -4772,7 +4786,7 @@
       "month": "2026-08",
       "staff": "모니카",
       "booked": true,
-      "count": 391
+      "count": 406
     },
     {
       "month": "2026-08",
@@ -10596,6 +10610,11 @@
     },
     {
       "month": "2026-08",
+      "procedure": "onda 울쎼라",
+      "count": 1
+    },
+    {
+      "month": "2026-08",
       "procedure": "re2o",
       "count": 1
     },
@@ -10827,7 +10846,7 @@
     {
       "month": "2026-08",
       "procedure": "물광",
-      "count": 6
+      "count": 7
     },
     {
       "month": "2026-08",
@@ -11524,7 +11543,7 @@
     {
       "weekday": "월",
       "hour": 11,
-      "count": 94
+      "count": 95
     },
     {
       "weekday": "월",
@@ -11759,7 +11778,7 @@
     {
       "weekday": "토",
       "hour": 10,
-      "count": 107
+      "count": 108
     },
     {
       "weekday": "토",
@@ -12364,8 +12383,8 @@
       "count": 1
     }
   ],
-  "megaRoiSourceRowCount": 124,
-  "megaRoiUsedRowCount": 124,
+  "megaRoiSourceRowCount": 126,
+  "megaRoiUsedRowCount": 126,
   "megaRoi": [
     {
       "staff": "미상",
@@ -12619,7 +12638,7 @@
       "platform": "더우인",
       "nationality": "미상",
       "followerTier": "10만 이상",
-      "count": 8,
+      "count": 9,
       "estimateSum": 416.0,
       "estimateCount": 8,
       "cpvSum": 0.034755,
@@ -12756,6 +12775,19 @@
       "cpvCount": 9,
       "roiSum": 1.50988,
       "roiCount": 2
+    },
+    {
+      "staff": "율리",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 0.0,
+      "estimateCount": 0,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
     },
     {
       "staff": "율리",
@@ -14285,5 +14317,5 @@
       "pairedCount": 34
     }
   ],
-  "generatedAt": "2026-08-30T14:09:22"
+  "generatedAt": "2026-08-31T01:33:29"
 }
