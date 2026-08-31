@@ -1,6 +1,6 @@
 {
-  "sourceRowCount": 4449,
-  "usedRowCount": 4178,
+  "sourceRowCount": 4451,
+  "usedRowCount": 4180,
   "daily": [
     {
       "date": "2026-05-06",
@@ -4667,23 +4667,16 @@
     {
       "date": "2026-08-31",
       "channel": "위챗",
-      "visitType": "미상",
-      "status": "예약완료",
-      "count": 4
-    },
-    {
-      "date": "2026-08-31",
-      "channel": "위챗",
       "visitType": "재진",
       "status": "예약완료",
-      "count": 4
+      "count": 7
     },
     {
       "date": "2026-08-31",
       "channel": "위챗",
       "visitType": "초진",
       "status": "예약완료",
-      "count": 22
+      "count": 25
     }
   ],
   "staffMonthly": [
@@ -4799,7 +4792,7 @@
       "month": "2026-08",
       "staff": "제니스",
       "booked": true,
-      "count": 365
+      "count": 367
     },
     {
       "month": "2026-08",
@@ -10803,7 +10796,7 @@
     {
       "month": "2026-08",
       "procedure": "리프팅",
-      "count": 13
+      "count": 15
     },
     {
       "month": "2026-08",
@@ -10923,7 +10916,7 @@
     {
       "month": "2026-08",
       "procedure": "보톡스+스킨부스터",
-      "count": 1
+      "count": 2
     },
     {
       "month": "2026-08",
@@ -10953,7 +10946,7 @@
     {
       "month": "2026-08",
       "procedure": "상담 후 결정",
-      "count": 41
+      "count": 48
     },
     {
       "month": "2026-08",
@@ -11053,6 +11046,11 @@
     {
       "month": "2026-08",
       "procedure": "스킨부스터+턱필러",
+      "count": 1
+    },
+    {
+      "month": "2026-08",
+      "procedure": "스킨부스터+포텐자/실펌+주름",
       "count": 1
     },
     {
@@ -11513,7 +11511,7 @@
     {
       "month": "2026-08",
       "procedure": "필러",
-      "count": 10
+      "count": 11
     },
     {
       "month": "2026-08",
@@ -11533,6 +11531,11 @@
     {
       "month": "2026-08",
       "procedure": "필러+보톡스",
+      "count": 1
+    },
+    {
+      "month": "2026-08",
+      "procedure": "필러+승모근보톡스+턱보톡스",
       "count": 1
     },
     {
@@ -11625,7 +11628,7 @@
     {
       "weekday": "화",
       "hour": 11,
-      "count": 56
+      "count": 58
     },
     {
       "weekday": "화",
@@ -11660,7 +11663,7 @@
     {
       "weekday": "수",
       "hour": 10,
-      "count": 105
+      "count": 106
     },
     {
       "weekday": "수",
@@ -11700,7 +11703,7 @@
     {
       "weekday": "목",
       "hour": 10,
-      "count": 93
+      "count": 95
     },
     {
       "weekday": "목",
@@ -11720,7 +11723,7 @@
     {
       "weekday": "목",
       "hour": 14,
-      "count": 65
+      "count": 66
     },
     {
       "weekday": "목",
@@ -11805,12 +11808,12 @@
     {
       "weekday": "토",
       "hour": 10,
-      "count": 109
+      "count": 113
     },
     {
       "weekday": "토",
       "hour": 11,
-      "count": 85
+      "count": 86
     },
     {
       "weekday": "토",
@@ -11850,7 +11853,7 @@
     {
       "weekday": "일",
       "hour": 10,
-      "count": 130
+      "count": 132
     },
     {
       "weekday": "일",
@@ -12410,9 +12413,243 @@
       "count": 1
     }
   ],
-  "megaRoiSourceRowCount": 126,
-  "megaRoiUsedRowCount": 126,
+  "megaRoiSourceRowCount": 144,
+  "megaRoiUsedRowCount": 144,
   "megaRoi": [
+    {
+      "staff": "1.2만",
+      "platform": "더우인",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 0.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "15.3만",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 114.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "2474",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 0.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "25.5만",
+      "platform": "더우인",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 37.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "27.4만",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 214.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "28.4만",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 285.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "28.5만",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 299.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "31.4만",
+      "platform": "더우인",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 49.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "36",
+      "platform": "더우인",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 4.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "39.2만",
+      "platform": "더우인",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 128.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "4967",
+      "platform": "더우인",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 37.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "5.2만",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 86.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "58.5만",
+      "platform": "더우인",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 122.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "5925",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 10.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "71.8만",
+      "platform": "더우인",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 92.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "8.2만",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 86.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "8.6만",
+      "platform": "샤오홍슈",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 86.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
+    {
+      "staff": "8981",
+      "platform": "더우인",
+      "nationality": "중국",
+      "followerTier": "미상",
+      "count": 1,
+      "estimateSum": 37.0,
+      "estimateCount": 1,
+      "cpvSum": 0.0,
+      "cpvCount": 0,
+      "roiSum": 0.0,
+      "roiCount": 0
+    },
     {
       "staff": "미상",
       "platform": "더우인",
@@ -12510,9 +12747,9 @@
       "nationality": "미상",
       "followerTier": "1만~5만",
       "count": 3,
-      "estimateSum": 241.0,
+      "estimateSum": 221.0,
       "estimateCount": 3,
-      "cpvSum": 0.441379,
+      "cpvSum": 0.403643,
       "cpvCount": 3,
       "roiSum": 0.0,
       "roiCount": 0
@@ -12536,9 +12773,9 @@
       "nationality": "중국",
       "followerTier": "10만 이상",
       "count": 6,
-      "estimateSum": 3077.0,
+      "estimateSum": 3057.0,
       "estimateCount": 6,
-      "cpvSum": 1.323685,
+      "cpvSum": 1.310369,
       "cpvCount": 6,
       "roiSum": 0.0,
       "roiCount": 0
@@ -12787,8 +13024,8 @@
       "estimateCount": 13,
       "cpvSum": 3.23673,
       "cpvCount": 13,
-      "roiSum": 3.359401,
-      "roiCount": 6
+      "roiSum": 6.186172,
+      "roiCount": 8
     },
     {
       "staff": "율리",
@@ -14098,7 +14335,7 @@
     }
   ],
   "viralPostingSourceRowCount": 559,
-  "viralPostingUsedRowCount": 542,
+  "viralPostingUsedRowCount": 546,
   "viralPostingUploads": [
     {
       "month": "2026-01",
@@ -14170,6 +14407,12 @@
       "month": "2026-08",
       "platform": "스레드",
       "count": 51,
+      "deletedCount": 0
+    },
+    {
+      "month": "2026-09",
+      "platform": "스레드",
+      "count": 4,
       "deletedCount": 0
     }
   ],
@@ -14329,7 +14572,20 @@
       "pairedLikesSum": 217.0,
       "pairedViewsSum": 30678.0,
       "pairedCount": 41
+    },
+    {
+      "month": "2026-09",
+      "platform": "스레드",
+      "likesSum": 0.0,
+      "likesCount": 0,
+      "commentsSum": 0.0,
+      "commentsCount": 0,
+      "viewsSum": 0.0,
+      "viewsCount": 0,
+      "pairedLikesSum": 0.0,
+      "pairedViewsSum": 0.0,
+      "pairedCount": 0
     }
   ],
-  "generatedAt": "2026-08-31T07:34:17"
+  "generatedAt": "2026-08-31T21:02:33"
 }
