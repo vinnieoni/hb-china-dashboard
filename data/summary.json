@@ -14449,14 +14449,14 @@
     {
       "month": "2026-08",
       "platform": "스레드",
-      "likesSum": 915.0,
+      "likesSum": 916.0,
       "likesCount": 49,
       "commentsSum": 135.0,
       "commentsCount": 49,
-      "viewsSum": 32777.0,
+      "viewsSum": 32845.0,
       "viewsCount": 44,
-      "pairedLikesSum": 223.0,
-      "pairedViewsSum": 32777.0,
+      "pairedLikesSum": 224.0,
+      "pairedViewsSum": 32845.0,
       "pairedCount": 44
     },
     {
@@ -14473,5 +14473,5 @@
       "pairedCount": 1
     }
   ],
-  "generatedAt": "2026-09-02T14:30:35"
+  "generatedAt": "2026-09-02T18:01:06"
 }
