@@ -1,6 +1,6 @@
 {
-  "sourceRowCount": 4474,
-  "usedRowCount": 4203,
+  "sourceRowCount": 4498,
+  "usedRowCount": 4227,
   "daily": [
     {
       "date": "2026-05-06",
@@ -4691,6 +4691,20 @@
       "visitType": "초진",
       "status": "예약완료",
       "count": 15
+    },
+    {
+      "date": "2026-09-02",
+      "channel": "위챗",
+      "visitType": "재진",
+      "status": "예약완료",
+      "count": 6
+    },
+    {
+      "date": "2026-09-02",
+      "channel": "위챗",
+      "visitType": "초진",
+      "status": "예약완료",
+      "count": 18
     }
   ],
   "staffMonthly": [
@@ -4824,7 +4838,7 @@
       "month": "2026-09",
       "staff": "모니카",
       "booked": true,
-      "count": 23
+      "count": 47
     }
   ],
   "procedureMonthly": [
@@ -11590,13 +11604,33 @@
     },
     {
       "month": "2026-09",
+      "procedure": "onda",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "re2o",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "경과",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
       "procedure": "리프팅",
       "count": 1
     },
     {
       "month": "2026-09",
+      "procedure": "보톡스",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
       "procedure": "상담 후 결정",
-      "count": 16
+      "count": 34
     },
     {
       "month": "2026-09",
@@ -11606,7 +11640,7 @@
     {
       "month": "2026-09",
       "procedure": "울쎄라",
-      "count": 1
+      "count": 3
     },
     {
       "month": "2026-09",
@@ -11628,7 +11662,7 @@
     {
       "weekday": "월",
       "hour": 10,
-      "count": 133
+      "count": 135
     },
     {
       "weekday": "월",
@@ -11648,7 +11682,7 @@
     {
       "weekday": "월",
       "hour": 14,
-      "count": 86
+      "count": 89
     },
     {
       "weekday": "월",
@@ -11668,7 +11702,7 @@
     {
       "weekday": "월",
       "hour": 18,
-      "count": 25
+      "count": 27
     },
     {
       "weekday": "월",
@@ -11683,7 +11717,7 @@
     {
       "weekday": "화",
       "hour": 10,
-      "count": 107
+      "count": 108
     },
     {
       "weekday": "화",
@@ -11723,7 +11757,7 @@
     {
       "weekday": "수",
       "hour": 10,
-      "count": 110
+      "count": 111
     },
     {
       "weekday": "수",
@@ -11768,12 +11802,12 @@
     {
       "weekday": "목",
       "hour": 11,
-      "count": 61
+      "count": 62
     },
     {
       "weekday": "목",
       "hour": 12,
-      "count": 23
+      "count": 24
     },
     {
       "weekday": "목",
@@ -11793,7 +11827,7 @@
     {
       "weekday": "목",
       "hour": 16,
-      "count": 46
+      "count": 50
     },
     {
       "weekday": "목",
@@ -11813,7 +11847,7 @@
     {
       "weekday": "금",
       "hour": 11,
-      "count": 67
+      "count": 68
     },
     {
       "weekday": "금",
@@ -11823,7 +11857,7 @@
     {
       "weekday": "금",
       "hour": 13,
-      "count": 39
+      "count": 40
     },
     {
       "weekday": "금",
@@ -11833,7 +11867,7 @@
     {
       "weekday": "금",
       "hour": 15,
-      "count": 59
+      "count": 60
     },
     {
       "weekday": "금",
@@ -11878,12 +11912,12 @@
     {
       "weekday": "토",
       "hour": 12,
-      "count": 54
+      "count": 56
     },
     {
       "weekday": "토",
       "hour": 13,
-      "count": 50
+      "count": 51
     },
     {
       "weekday": "토",
@@ -11918,7 +11952,7 @@
     {
       "weekday": "일",
       "hour": 11,
-      "count": 93
+      "count": 94
     },
     {
       "weekday": "일",
@@ -11928,7 +11962,7 @@
     {
       "weekday": "일",
       "hour": 13,
-      "count": 49
+      "count": 50
     },
     {
       "weekday": "일",
@@ -11943,7 +11977,7 @@
     {
       "weekday": "일",
       "hour": 16,
-      "count": 55
+      "count": 56
     },
     {
       "weekday": "일",
@@ -12473,8 +12507,8 @@
       "count": 1
     }
   ],
-  "megaRoiSourceRowCount": 126,
-  "megaRoiUsedRowCount": 126,
+  "megaRoiSourceRowCount": 124,
+  "megaRoiUsedRowCount": 124,
   "megaRoi": [
     {
       "staff": "미상",
@@ -12611,11 +12645,11 @@
       "platform": "더우인",
       "nationality": "중국",
       "followerTier": "1만 미만",
-      "count": 3,
-      "estimateSum": 59.0,
-      "estimateCount": 3,
-      "cpvSum": 0.144935,
-      "cpvCount": 3,
+      "count": 2,
+      "estimateSum": 28.0,
+      "estimateCount": 2,
+      "cpvSum": 0.056364,
+      "cpvCount": 2,
       "roiSum": 0.0,
       "roiCount": 0
     },
@@ -12663,11 +12697,11 @@
       "platform": "샤오홍슈",
       "nationality": "중국",
       "followerTier": "5만~10만",
-      "count": 6,
-      "estimateSum": 488.0,
-      "estimateCount": 6,
-      "cpvSum": 0.562525,
-      "cpvCount": 6,
+      "count": 5,
+      "estimateSum": 438.0,
+      "estimateCount": 5,
+      "cpvSum": 0.432992,
+      "cpvCount": 5,
       "roiSum": 0.0,
       "roiCount": 0
     },
@@ -14428,16 +14462,16 @@
     {
       "month": "2026-09",
       "platform": "스레드",
-      "likesSum": 0.0,
-      "likesCount": 0,
-      "commentsSum": 0.0,
-      "commentsCount": 0,
-      "viewsSum": 0.0,
-      "viewsCount": 0,
+      "likesSum": 240.0,
+      "likesCount": 3,
+      "commentsSum": 17.0,
+      "commentsCount": 3,
+      "viewsSum": 38.0,
+      "viewsCount": 1,
       "pairedLikesSum": 0.0,
-      "pairedViewsSum": 0.0,
-      "pairedCount": 0
+      "pairedViewsSum": 38.0,
+      "pairedCount": 1
     }
   ],
-  "generatedAt": "2026-09-01T15:08:35"
+  "generatedAt": "2026-09-02T10:03:41"
 }
