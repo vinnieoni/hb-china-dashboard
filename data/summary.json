@@ -14220,8 +14220,8 @@
       "count": 1
     }
   ],
-  "viralPostingSourceRowCount": 571,
-  "viralPostingUsedRowCount": 558,
+  "viralPostingSourceRowCount": 575,
+  "viralPostingUsedRowCount": 562,
   "viralPostingUploads": [
     {
       "month": "2026-01",
@@ -14298,7 +14298,7 @@
     {
       "month": "2026-09",
       "platform": "스레드",
-      "count": 16,
+      "count": 20,
       "deletedCount": 0
     }
   ],
@@ -14449,29 +14449,29 @@
     {
       "month": "2026-08",
       "platform": "스레드",
-      "likesSum": 909.0,
+      "likesSum": 915.0,
       "likesCount": 49,
-      "commentsSum": 130.0,
+      "commentsSum": 135.0,
       "commentsCount": 49,
-      "viewsSum": 31579.0,
+      "viewsSum": 32777.0,
       "viewsCount": 44,
-      "pairedLikesSum": 218.0,
-      "pairedViewsSum": 31579.0,
+      "pairedLikesSum": 223.0,
+      "pairedViewsSum": 32777.0,
       "pairedCount": 44
     },
     {
       "month": "2026-09",
       "platform": "스레드",
-      "likesSum": 240.0,
-      "likesCount": 3,
+      "likesSum": 249.0,
+      "likesCount": 5,
       "commentsSum": 17.0,
       "commentsCount": 3,
-      "viewsSum": 38.0,
+      "viewsSum": 46.0,
       "viewsCount": 1,
       "pairedLikesSum": 0.0,
-      "pairedViewsSum": 38.0,
+      "pairedViewsSum": 46.0,
       "pairedCount": 1
     }
   ],
-  "generatedAt": "2026-09-02T10:03:41"
+  "generatedAt": "2026-09-02T14:30:35"
 }
