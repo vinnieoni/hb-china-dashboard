@@ -1,6 +1,6 @@
 {
-  "sourceRowCount": 4528,
-  "usedRowCount": 4257,
+  "sourceRowCount": 4550,
+  "usedRowCount": 4279,
   "daily": [
     {
       "date": "2026-05-06",
@@ -4711,14 +4711,14 @@
       "channel": "위챗",
       "visitType": "재진",
       "status": "예약완료",
-      "count": 4
+      "count": 18
     },
     {
       "date": "2026-09-03",
       "channel": "위챗",
       "visitType": "초진",
       "status": "예약완료",
-      "count": 26
+      "count": 34
     }
   ],
   "staffMonthly": [
@@ -4858,7 +4858,7 @@
       "month": "2026-09",
       "staff": "제니스",
       "booked": true,
-      "count": 30
+      "count": 52
     }
   ],
   "procedureMonthly": [
@@ -11614,12 +11614,22 @@
     },
     {
       "month": "2026-09",
+      "procedure": ".포텐자.실펌",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
       "procedure": "ONDA",
       "count": 1
     },
     {
       "month": "2026-09",
       "procedure": "POTENZA",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "cellredm+슈링크",
       "count": 1
     },
     {
@@ -11634,12 +11644,42 @@
     },
     {
       "month": "2026-09",
+      "procedure": "xerf+보톡스+스킨부스터+필러",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
       "procedure": "경과",
+      "count": 2
+    },
+    {
+      "month": "2026-09",
+      "procedure": "눈물골+턱보톡스",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "라쥬런",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "리투오+실펌",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "리투오+피부관리+실펌+목주름+체형과리",
       "count": 1
     },
     {
       "month": "2026-09",
       "procedure": "리프팅",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "리프팅+보습",
       "count": 1
     },
     {
@@ -11654,12 +11694,27 @@
     },
     {
       "month": "2026-09",
+      "procedure": "보톡스+리쥬란",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
       "procedure": "상담 후 결정",
-      "count": 37
+      "count": 59
     },
     {
       "month": "2026-09",
       "procedure": "스컬트라+스쿱",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "스쿱+티타늄",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "스킨부스터",
       "count": 1
     },
     {
@@ -11669,7 +11724,17 @@
     },
     {
       "month": "2026-09",
+      "procedure": "실펌+비타란+주름보톡스",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
       "procedure": "써마지+보톡스+리쥬란+관자필러",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "온다+실펌+스킨부스터+보톡스",
       "count": 1
     },
     {
@@ -11679,7 +11744,22 @@
     },
     {
       "month": "2026-09",
+      "procedure": "울쎄라+포텐자/실펌+스킨부수터",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
       "procedure": "종아리 보톡스",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "턱보톡스",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "턱필러",
       "count": 1
     },
     {
@@ -11690,6 +11770,16 @@
     {
       "month": "2026-09",
       "procedure": "포텐자/실펌+리쥬란",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "포텐자/실펌+스킨부스터",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "포텐자/실펌+콜라겐부스터",
       "count": 1
     },
     {
@@ -11717,7 +11807,7 @@
     {
       "weekday": "월",
       "hour": 10,
-      "count": 135
+      "count": 140
     },
     {
       "weekday": "월",
@@ -11757,7 +11847,7 @@
     {
       "weekday": "월",
       "hour": 18,
-      "count": 27
+      "count": 28
     },
     {
       "weekday": "월",
@@ -11777,7 +11867,7 @@
     {
       "weekday": "화",
       "hour": 11,
-      "count": 58
+      "count": 62
     },
     {
       "weekday": "화",
@@ -11812,7 +11902,7 @@
     {
       "weekday": "수",
       "hour": 10,
-      "count": 111
+      "count": 112
     },
     {
       "weekday": "수",
@@ -11852,12 +11942,12 @@
     {
       "weekday": "목",
       "hour": 10,
-      "count": 96
+      "count": 97
     },
     {
       "weekday": "목",
       "hour": 11,
-      "count": 63
+      "count": 65
     },
     {
       "weekday": "목",
@@ -11867,7 +11957,7 @@
     {
       "weekday": "목",
       "hour": 13,
-      "count": 40
+      "count": 42
     },
     {
       "weekday": "목",
@@ -11877,17 +11967,22 @@
     {
       "weekday": "목",
       "hour": 15,
-      "count": 37
+      "count": 41
     },
     {
       "weekday": "목",
       "hour": 16,
-      "count": 53
+      "count": 54
     },
     {
       "weekday": "목",
       "hour": 17,
       "count": 8
+    },
+    {
+      "weekday": "목",
+      "hour": 18,
+      "count": 1
     },
     {
       "weekday": "금",
@@ -11902,12 +11997,12 @@
     {
       "weekday": "금",
       "hour": 11,
-      "count": 69
+      "count": 71
     },
     {
       "weekday": "금",
       "hour": 12,
-      "count": 32
+      "count": 33
     },
     {
       "weekday": "금",
@@ -11967,7 +12062,7 @@
     {
       "weekday": "토",
       "hour": 12,
-      "count": 57
+      "count": 58
     },
     {
       "weekday": "토",
@@ -11977,12 +12072,12 @@
     {
       "weekday": "토",
       "hour": 14,
-      "count": 82
+      "count": 84
     },
     {
       "weekday": "토",
       "hour": 15,
-      "count": 68
+      "count": 71
     },
     {
       "weekday": "토",
@@ -12002,32 +12097,32 @@
     {
       "weekday": "일",
       "hour": 10,
-      "count": 133
+      "count": 135
     },
     {
       "weekday": "일",
       "hour": 11,
-      "count": 94
+      "count": 96
     },
     {
       "weekday": "일",
       "hour": 12,
-      "count": 48
+      "count": 49
     },
     {
       "weekday": "일",
       "hour": 13,
-      "count": 52
+      "count": 54
     },
     {
       "weekday": "일",
       "hour": 14,
-      "count": 68
+      "count": 70
     },
     {
       "weekday": "일",
       "hour": 15,
-      "count": 44
+      "count": 46
     },
     {
       "weekday": "일",
@@ -12835,8 +12930,8 @@
       "estimateCount": 1,
       "cpvSum": 0.007817,
       "cpvCount": 1,
-      "roiSum": 0.0,
-      "roiCount": 0
+      "roiSum": 0.070349,
+      "roiCount": 1
     },
     {
       "staff": "율리",
@@ -14528,5 +14623,5 @@
       "pairedCount": 1
     }
   ],
-  "generatedAt": "2026-09-03T05:49:29"
+  "generatedAt": "2026-09-03T10:14:07"
 }
