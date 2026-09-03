@@ -4709,9 +4709,16 @@
     {
       "date": "2026-09-03",
       "channel": "위챗",
+      "visitType": "재진",
+      "status": "예약완료",
+      "count": 4
+    },
+    {
+      "date": "2026-09-03",
+      "channel": "위챗",
       "visitType": "초진",
       "status": "예약완료",
-      "count": 30
+      "count": 26
     }
   ],
   "staffMonthly": [
@@ -11637,17 +11644,32 @@
     },
     {
       "month": "2026-09",
+      "procedure": "미백",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
       "procedure": "보톡스",
       "count": 1
     },
     {
       "month": "2026-09",
       "procedure": "상담 후 결정",
-      "count": 34
+      "count": 37
+    },
+    {
+      "month": "2026-09",
+      "procedure": "스컬트라+스쿱",
+      "count": 1
     },
     {
       "month": "2026-09",
       "procedure": "승모근보톡스",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "써마지+보톡스+리쥬란+관자필러",
       "count": 1
     },
     {
@@ -11658,6 +11680,21 @@
     {
       "month": "2026-09",
       "procedure": "종아리 보톡스",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "포텐자/실펌",
+      "count": 2
+    },
+    {
+      "month": "2026-09",
+      "procedure": "포텐자/실펌+리쥬란",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "피부관리",
       "count": 1
     },
     {
@@ -11820,7 +11857,7 @@
     {
       "weekday": "목",
       "hour": 11,
-      "count": 62
+      "count": 63
     },
     {
       "weekday": "목",
@@ -11845,7 +11882,7 @@
     {
       "weekday": "목",
       "hour": 16,
-      "count": 50
+      "count": 53
     },
     {
       "weekday": "목",
@@ -11900,7 +11937,7 @@
     {
       "weekday": "금",
       "hour": 18,
-      "count": 28
+      "count": 29
     },
     {
       "weekday": "금",
@@ -11930,7 +11967,7 @@
     {
       "weekday": "토",
       "hour": 12,
-      "count": 56
+      "count": 57
     },
     {
       "weekday": "토",
@@ -11945,7 +11982,7 @@
     {
       "weekday": "토",
       "hour": 15,
-      "count": 67
+      "count": 68
     },
     {
       "weekday": "토",
@@ -11980,7 +12017,7 @@
     {
       "weekday": "일",
       "hour": 13,
-      "count": 50
+      "count": 52
     },
     {
       "weekday": "일",
@@ -14491,5 +14528,5 @@
       "pairedCount": 1
     }
   ],
-  "generatedAt": "2026-09-03T01:10:46"
+  "generatedAt": "2026-09-03T05:49:29"
 }
