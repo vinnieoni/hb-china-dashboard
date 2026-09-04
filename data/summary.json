@@ -1,6 +1,6 @@
 {
-  "sourceRowCount": 4590,
-  "usedRowCount": 4319,
+  "sourceRowCount": 4584,
+  "usedRowCount": 4313,
   "daily": [
     {
       "date": "2026-05-06",
@@ -4732,7 +4732,7 @@
       "channel": "위챗",
       "visitType": "초진",
       "status": "예약완료",
-      "count": 35
+      "count": 29
     }
   ],
   "staffMonthly": [
@@ -4872,7 +4872,7 @@
       "month": "2026-09",
       "staff": "제니스",
       "booked": true,
-      "count": 92
+      "count": 86
     }
   ],
   "procedureMonthly": [
@@ -11991,7 +11991,7 @@
     {
       "weekday": "화",
       "hour": 14,
-      "count": 59
+      "count": 58
     },
     {
       "weekday": "화",
@@ -12026,7 +12026,7 @@
     {
       "weekday": "수",
       "hour": 13,
-      "count": 33
+      "count": 32
     },
     {
       "weekday": "수",
@@ -14732,5 +14732,5 @@
       "pairedCount": 1
     }
   ],
-  "generatedAt": "2026-09-04T10:04:02"
+  "generatedAt": "2026-09-04T14:22:49"
 }
