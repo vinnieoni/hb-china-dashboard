@@ -1,6 +1,6 @@
 {
-  "sourceRowCount": 4550,
-  "usedRowCount": 4279,
+  "sourceRowCount": 4589,
+  "usedRowCount": 4318,
   "daily": [
     {
       "date": "2026-05-06",
@@ -4719,6 +4719,20 @@
       "visitType": "초진",
       "status": "예약완료",
       "count": 34
+    },
+    {
+      "date": "2026-09-04",
+      "channel": "위챗",
+      "visitType": "재진",
+      "status": "예약완료",
+      "count": 2
+    },
+    {
+      "date": "2026-09-04",
+      "channel": "위챗",
+      "visitType": "초진",
+      "status": "예약완료",
+      "count": 37
     }
   ],
   "staffMonthly": [
@@ -4858,7 +4872,7 @@
       "month": "2026-09",
       "staff": "제니스",
       "booked": true,
-      "count": 52
+      "count": 91
     }
   ],
   "procedureMonthly": [
@@ -11664,6 +11678,11 @@
     },
     {
       "month": "2026-09",
+      "procedure": "리쥬란+온다",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
       "procedure": "리투오+실펌",
       "count": 1
     },
@@ -11700,7 +11719,7 @@
     {
       "month": "2026-09",
       "procedure": "상담 후 결정",
-      "count": 59
+      "count": 61
     },
     {
       "month": "2026-09",
@@ -11715,6 +11734,11 @@
     {
       "month": "2026-09",
       "procedure": "스킨부스터",
+      "count": 2
+    },
+    {
+      "month": "2026-09",
+      "procedure": "스킨부스터+써마지",
       "count": 1
     },
     {
@@ -11729,6 +11753,11 @@
     },
     {
       "month": "2026-09",
+      "procedure": "써마지+보톡스",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
       "procedure": "써마지+보톡스+리쥬란+관자필러",
       "count": 1
     },
@@ -11739,8 +11768,13 @@
     },
     {
       "month": "2026-09",
+      "procedure": "울써마지+아이리쥬란+피부관리",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
       "procedure": "울쎄라",
-      "count": 3
+      "count": 4
     },
     {
       "month": "2026-09",
@@ -11754,7 +11788,17 @@
     },
     {
       "month": "2026-09",
+      "procedure": "주름",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
       "procedure": "턱보톡스",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "턱보톡스 엘러간 100u +온다 페이스 60kj",
       "count": 1
     },
     {
@@ -11867,7 +11911,7 @@
     {
       "weekday": "화",
       "hour": 11,
-      "count": 62
+      "count": 63
     },
     {
       "weekday": "화",
@@ -11887,7 +11931,7 @@
     {
       "weekday": "화",
       "hour": 15,
-      "count": 49
+      "count": 50
     },
     {
       "weekday": "화",
@@ -11932,7 +11976,7 @@
     {
       "weekday": "수",
       "hour": 16,
-      "count": 41
+      "count": 42
     },
     {
       "weekday": "수",
@@ -11962,7 +12006,7 @@
     {
       "weekday": "목",
       "hour": 14,
-      "count": 66
+      "count": 67
     },
     {
       "weekday": "목",
@@ -11997,7 +12041,7 @@
     {
       "weekday": "금",
       "hour": 11,
-      "count": 71
+      "count": 72
     },
     {
       "weekday": "금",
@@ -12022,7 +12066,7 @@
     {
       "weekday": "금",
       "hour": 16,
-      "count": 30
+      "count": 33
     },
     {
       "weekday": "금",
@@ -12082,7 +12126,7 @@
     {
       "weekday": "토",
       "hour": 16,
-      "count": 67
+      "count": 68
     },
     {
       "weekday": "토",
@@ -12122,7 +12166,7 @@
     {
       "weekday": "일",
       "hour": 15,
-      "count": 46
+      "count": 47
     },
     {
       "weekday": "일",
@@ -12657,8 +12701,8 @@
       "count": 1
     }
   ],
-  "megaRoiSourceRowCount": 124,
-  "megaRoiUsedRowCount": 124,
+  "megaRoiSourceRowCount": 134,
+  "megaRoiUsedRowCount": 134,
   "megaRoi": [
     {
       "staff": "미상",
@@ -12886,11 +12930,11 @@
       "platform": "인스타그램",
       "nationality": "대만",
       "followerTier": "10만 이상",
-      "count": 3,
-      "estimateSum": 737.0,
-      "estimateCount": 3,
-      "cpvSum": 0.054118,
-      "cpvCount": 3,
+      "count": 8,
+      "estimateSum": 5897.0,
+      "estimateCount": 8,
+      "cpvSum": 0.617128,
+      "cpvCount": 6,
       "roiSum": 0.156917,
       "roiCount": 1
     },
@@ -12899,9 +12943,9 @@
       "platform": "인스타그램",
       "nationality": "대만",
       "followerTier": "1만~5만",
-      "count": 1,
-      "estimateSum": 140.0,
-      "estimateCount": 1,
+      "count": 2,
+      "estimateSum": 545.0,
+      "estimateCount": 2,
       "cpvSum": 0.074707,
       "cpvCount": 1,
       "roiSum": 0.997332,
@@ -12912,9 +12956,9 @@
       "platform": "인스타그램",
       "nationality": "대만",
       "followerTier": "5만~10만",
-      "count": 4,
-      "estimateSum": 796.0,
-      "estimateCount": 4,
+      "count": 8,
+      "estimateSum": 3064.0,
+      "estimateCount": 8,
       "cpvSum": 0.055089,
       "cpvCount": 4,
       "roiSum": 1.81544,
@@ -14623,5 +14667,5 @@
       "pairedCount": 1
     }
   ],
-  "generatedAt": "2026-09-03T10:14:07"
+  "generatedAt": "2026-09-04T05:54:54"
 }
