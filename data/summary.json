@@ -1,6 +1,6 @@
 {
-  "sourceRowCount": 4618,
-  "usedRowCount": 4347,
+  "sourceRowCount": 4617,
+  "usedRowCount": 4346,
   "daily": [
     {
       "date": "2026-05-06",
@@ -4732,14 +4732,14 @@
       "channel": "위챗",
       "visitType": "초진",
       "status": "예약완료",
-      "count": 29
+      "count": 28
     },
     {
       "date": "2026-09-05",
       "channel": "위챗",
       "visitType": "미상",
       "status": "예약완료",
-      "count": 15
+      "count": 12
     },
     {
       "date": "2026-09-05",
@@ -4753,7 +4753,7 @@
       "channel": "위챗",
       "visitType": "초진",
       "status": "예약완료",
-      "count": 15
+      "count": 18
     }
   ],
   "staffMonthly": [
@@ -4893,7 +4893,7 @@
       "month": "2026-09",
       "staff": "제니스",
       "booked": true,
-      "count": 104
+      "count": 103
     }
   ],
   "procedureMonthly": [
@@ -11720,7 +11720,7 @@
     {
       "month": "2026-09",
       "procedure": "리쥬란",
-      "count": 1
+      "count": 2
     },
     {
       "month": "2026-09",
@@ -11760,7 +11760,7 @@
     {
       "month": "2026-09",
       "procedure": "보톡스",
-      "count": 2
+      "count": 3
     },
     {
       "month": "2026-09",
@@ -11780,7 +11780,7 @@
     {
       "month": "2026-09",
       "procedure": "상담 후 결정",
-      "count": 73
+      "count": 78
     },
     {
       "month": "2026-09",
@@ -11805,7 +11805,7 @@
     {
       "month": "2026-09",
       "procedure": "스킨부스터+써마지",
-      "count": 2
+      "count": 1
     },
     {
       "month": "2026-09",
@@ -12027,12 +12027,12 @@
     {
       "weekday": "화",
       "hour": 14,
-      "count": 58
+      "count": 59
     },
     {
       "weekday": "화",
       "hour": 15,
-      "count": 54
+      "count": 55
     },
     {
       "weekday": "화",
@@ -12142,7 +12142,7 @@
     {
       "weekday": "금",
       "hour": 11,
-      "count": 73
+      "count": 72
     },
     {
       "weekday": "금",
@@ -12167,7 +12167,7 @@
     {
       "weekday": "금",
       "hour": 16,
-      "count": 33
+      "count": 34
     },
     {
       "weekday": "금",
@@ -12212,7 +12212,7 @@
     {
       "weekday": "토",
       "hour": 13,
-      "count": 52
+      "count": 53
     },
     {
       "weekday": "토",
@@ -12227,7 +12227,7 @@
     {
       "weekday": "토",
       "hour": 16,
-      "count": 68
+      "count": 69
     },
     {
       "weekday": "토",
@@ -12262,7 +12262,7 @@
     {
       "weekday": "일",
       "hour": 14,
-      "count": 72
+      "count": 74
     },
     {
       "weekday": "일",
@@ -14768,5 +14768,5 @@
       "pairedCount": 1
     }
   ],
-  "generatedAt": "2026-09-05T04:30:35"
+  "generatedAt": "2026-09-05T08:32:36"
 }
