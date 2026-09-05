@@ -1,6 +1,6 @@
 {
-  "sourceRowCount": 4617,
-  "usedRowCount": 4346,
+  "sourceRowCount": 4605,
+  "usedRowCount": 4334,
   "daily": [
     {
       "date": "2026-05-06",
@@ -4737,23 +4737,16 @@
     {
       "date": "2026-09-05",
       "channel": "위챗",
-      "visitType": "미상",
-      "status": "예약완료",
-      "count": 12
-    },
-    {
-      "date": "2026-09-05",
-      "channel": "위챗",
       "visitType": "재진",
       "status": "예약완료",
-      "count": 4
+      "count": 5
     },
     {
       "date": "2026-09-05",
       "channel": "위챗",
       "visitType": "초진",
       "status": "예약완료",
-      "count": 18
+      "count": 17
     }
   ],
   "staffMonthly": [
@@ -4893,7 +4886,7 @@
       "month": "2026-09",
       "staff": "제니스",
       "booked": true,
-      "count": 103
+      "count": 91
     }
   ],
   "procedureMonthly": [
@@ -11669,6 +11662,11 @@
     },
     {
       "month": "2026-09",
+      "procedure": "Re20 Sofwave",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
       "procedure": "cellredm+슈링크",
       "count": 1
     },
@@ -11780,7 +11778,7 @@
     {
       "month": "2026-09",
       "procedure": "상담 후 결정",
-      "count": 78
+      "count": 80
     },
     {
       "month": "2026-09",
@@ -11815,6 +11813,11 @@
     {
       "month": "2026-09",
       "procedure": "실펌+비타란+주름보톡스",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "써마지 리쥬란 티타늄",
       "count": 1
     },
     {
@@ -12017,7 +12020,7 @@
     {
       "weekday": "화",
       "hour": 12,
-      "count": 22
+      "count": 23
     },
     {
       "weekday": "화",
@@ -12057,7 +12060,7 @@
     {
       "weekday": "수",
       "hour": 12,
-      "count": 18
+      "count": 19
     },
     {
       "weekday": "수",
@@ -12077,7 +12080,7 @@
     {
       "weekday": "수",
       "hour": 16,
-      "count": 42
+      "count": 41
     },
     {
       "weekday": "수",
@@ -12152,7 +12155,7 @@
     {
       "weekday": "금",
       "hour": 13,
-      "count": 40
+      "count": 41
     },
     {
       "weekday": "금",
@@ -12217,7 +12220,7 @@
     {
       "weekday": "토",
       "hour": 14,
-      "count": 84
+      "count": 85
     },
     {
       "weekday": "토",
@@ -14768,5 +14771,5 @@
       "pairedCount": 1
     }
   ],
-  "generatedAt": "2026-09-05T08:32:36"
+  "generatedAt": "2026-09-05T14:43:52"
 }
