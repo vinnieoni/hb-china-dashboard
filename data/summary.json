@@ -1,6 +1,6 @@
 {
-  "sourceRowCount": 4584,
-  "usedRowCount": 4313,
+  "sourceRowCount": 4618,
+  "usedRowCount": 4347,
   "daily": [
     {
       "date": "2026-05-06",
@@ -4733,6 +4733,27 @@
       "visitType": "초진",
       "status": "예약완료",
       "count": 29
+    },
+    {
+      "date": "2026-09-05",
+      "channel": "위챗",
+      "visitType": "미상",
+      "status": "예약완료",
+      "count": 15
+    },
+    {
+      "date": "2026-09-05",
+      "channel": "위챗",
+      "visitType": "재진",
+      "status": "예약완료",
+      "count": 4
+    },
+    {
+      "date": "2026-09-05",
+      "channel": "위챗",
+      "visitType": "초진",
+      "status": "예약완료",
+      "count": 15
     }
   ],
   "staffMonthly": [
@@ -4866,13 +4887,13 @@
       "month": "2026-09",
       "staff": "모니카",
       "booked": true,
-      "count": 47
+      "count": 63
     },
     {
       "month": "2026-09",
       "staff": "제니스",
       "booked": true,
-      "count": 86
+      "count": 104
     }
   ],
   "procedureMonthly": [
@@ -11654,6 +11675,11 @@
     {
       "month": "2026-09",
       "procedure": "onda",
+      "count": 2
+    },
+    {
+      "month": "2026-09",
+      "procedure": "re20 onda",
       "count": 1
     },
     {
@@ -11683,7 +11709,17 @@
     },
     {
       "month": "2026-09",
+      "procedure": "다크서클+스킨부스터+써마지",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
       "procedure": "라쥬런",
+      "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "리쥬란",
       "count": 1
     },
     {
@@ -11744,7 +11780,7 @@
     {
       "month": "2026-09",
       "procedure": "상담 후 결정",
-      "count": 69
+      "count": 73
     },
     {
       "month": "2026-09",
@@ -11769,7 +11805,7 @@
     {
       "month": "2026-09",
       "procedure": "스킨부스터+써마지",
-      "count": 1
+      "count": 2
     },
     {
       "month": "2026-09",
@@ -11779,11 +11815,6 @@
     {
       "month": "2026-09",
       "procedure": "실펌+비타란+주름보톡스",
-      "count": 1
-    },
-    {
-      "month": "2026-09",
-      "procedure": "써마지",
       "count": 1
     },
     {
@@ -11805,6 +11836,11 @@
       "month": "2026-09",
       "procedure": "온다 페이스 100kJ",
       "count": 1
+    },
+    {
+      "month": "2026-09",
+      "procedure": "온다+리쥬란+실펌",
+      "count": 2
     },
     {
       "month": "2026-09",
@@ -11894,7 +11930,7 @@
     {
       "month": "2026-09",
       "procedure": "필러",
-      "count": 1
+      "count": 2
     },
     {
       "month": "2026-09",
@@ -11916,7 +11952,7 @@
     {
       "weekday": "월",
       "hour": 10,
-      "count": 141
+      "count": 143
     },
     {
       "weekday": "월",
@@ -11941,7 +11977,7 @@
     {
       "weekday": "월",
       "hour": 15,
-      "count": 50
+      "count": 51
     },
     {
       "weekday": "월",
@@ -12001,7 +12037,7 @@
     {
       "weekday": "화",
       "hour": 16,
-      "count": 57
+      "count": 60
     },
     {
       "weekday": "화",
@@ -12026,7 +12062,7 @@
     {
       "weekday": "수",
       "hour": 13,
-      "count": 32
+      "count": 33
     },
     {
       "weekday": "수",
@@ -12066,7 +12102,7 @@
     {
       "weekday": "목",
       "hour": 13,
-      "count": 42
+      "count": 43
     },
     {
       "weekday": "목",
@@ -12106,7 +12142,7 @@
     {
       "weekday": "금",
       "hour": 11,
-      "count": 72
+      "count": 73
     },
     {
       "weekday": "금",
@@ -12206,17 +12242,17 @@
     {
       "weekday": "일",
       "hour": 10,
-      "count": 136
+      "count": 135
     },
     {
       "weekday": "일",
       "hour": 11,
-      "count": 96
+      "count": 97
     },
     {
       "weekday": "일",
       "hour": 12,
-      "count": 49
+      "count": 50
     },
     {
       "weekday": "일",
@@ -12231,7 +12267,7 @@
     {
       "weekday": "일",
       "hour": 15,
-      "count": 47
+      "count": 48
     },
     {
       "weekday": "일",
@@ -14732,5 +14768,5 @@
       "pairedCount": 1
     }
   ],
-  "generatedAt": "2026-09-04T14:22:49"
+  "generatedAt": "2026-09-05T04:30:35"
 }
